@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLDORO Gold & Jewelry</title>
+<style>
+:root{
+  --black:#070707;
+  --black2:#111;
+  --gold:#c79a2b;
+  --gold2:#e0b64e;
+  --text:#111;
+  --muted:#777;
+  --line:#e7e7e7;
+  --bg:#f7f7f5;
+  --max:1380px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR",Arial,sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+.wrap{width:min(var(--max),calc(100% - 48px));margin:0 auto}
+
+/* header */
+.header{
+  position:absolute;top:0;left:0;right:0;z-index:50;color:#fff;
+  height:84px;display:flex;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.05));
+}
+.header-inner{width:min(var(--max),calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:35px;align-items:center}
+.logo img{width:220px;height:auto}
+.nav{display:flex;justify-content:center;gap:28px;font-size:13px}
+.nav a{color:#eee}
+.nav a:hover{color:var(--gold2)}
+.header-side{display:flex;align-items:center;gap:22px;font-size:13px}
+.menu-icon{font-size:24px}
+
+/* hero */
+.hero{
+  min-height:650px;position:relative;display:flex;align-items:center;color:#fff;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.18) 100%),
+  url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=92") center/cover no-repeat;
+}
+.hero .wrap{padding-top:60px}
+.hero-copy{max-width:570px}
+.hero-kicker{font-size:12px;letter-spacing:.12em;margin-bottom:14px}
+.hero h1{font-size:50px;line-height:1.25;margin:0;font-weight:500;letter-spacing:-.04em}
+.hero p{font-size:14px;line-height:1.9;color:#ddd;margin:20px 0 28px}
+.btn{display:inline-flex;align-items:center;gap:20px;border:1px solid rgba(255,255,255,.6);padding:14px 22px;font-size:12px}
+.btn.gold{border-color:#b78d29;color:#e0b64e}
+
+/* ticker */
+.ticker{background:#0b0b0b;color:#fff;border-top:1px solid #222;border-bottom:1px solid #222}
+.ticker-grid{display:grid;grid-template-columns:1.2fr repeat(4,1fr) .9fr}
+.ticker > .wrap{width:min(var(--max),calc(100% - 48px))}
+.tick{padding:18px 20px;border-right:1px solid #202020}
+.tick small{display:block;color:#999;font-size:10px;margin-bottom:5px}
+.tick strong{font-size:17px}
+.tick strong.up{color:#d7ae45}
+.tick-action{display:flex;align-items:center;justify-content:center}
+
+
+/* brand intro before gold market */
+.brand-intro{
+  padding:125px 0 120px;
+  background:#fff;
+}
+.brand-intro-grid{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:110px;
+  align-items:start;
+}
+.brand-intro-no{
+  color:#a87818;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  letter-spacing:.14em;
+  margin-bottom:25px;
+}
+.brand-intro h2{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:48px;
+  line-height:1.22;
+  font-weight:400;
+  letter-spacing:-.025em;
+}
+.brand-intro-copy{
+  padding-top:17px;
+}
+.brand-intro-copy .lead{
+  margin:0 0 30px;
+  font-size:20px;
+  line-height:1.75;
+  font-weight:400;
+  color:#111;
+}
+.brand-intro-copy .desc{
+  margin:0;
+  max-width:680px;
+  color:#777;
+  font-size:12px;
+  line-height:2.2;
+}
+.brand-intro-sign{
+  margin-top:30px;
+  color:#aa781c;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:15px;
+  font-style:italic;
+}
+@media(max-width:900px){
+  .brand-intro-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+  .brand-intro-copy{padding-top:0}
+}
+@media(max-width:680px){
+  .brand-intro{padding:82px 0 78px}
+  .brand-intro-grid{gap:28px}
+  .brand-intro-no{margin-bottom:18px}
+  .brand-intro h2{font-size:37px;line-height:1.18}
+  .brand-intro-copy .lead{font-size:17px;line-height:1.7;margin-bottom:22px}
+  .brand-intro-copy .desc{font-size:11px;line-height:2}
+  .brand-intro-sign{margin-top:22px;font-size:14px}
+}
+
+/* market */
+.market{padding:105px 0 115px}
+.market-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:55px}
+.market h2{font-size:24px;margin:0 0 28px}
+.price-table{width:100%;border-collapse:collapse;font-size:13px}
+.price-table th{padding:12px;border-bottom:1px solid #ccc;text-align:left}
+.price-table td{padding:16px 12px;border-bottom:1px solid #ececec}
+.price-table td:nth-child(2),.price-table td:nth-child(3){text-align:right}
+.price-table .gold{color:#d39e24;font-size:16px}
+.market-note{font-size:10px;color:#999;margin-top:10px}
+.chart-tabs{display:flex;border-bottom:1px solid #ddd;margin-bottom:18px}
+.chart-tabs button{flex:1;border:0;background:#fff;padding:10px;font-size:11px;cursor:pointer}
+.chart-tabs .active{background:#111;color:#fff}
+.chart-box{height:300px;position:relative}
+#chart{width:100%;height:100%}
+#tip{position:absolute;display:none;background:#111;color:#f0c954;padding:8px 10px;font-size:10px;border-radius:4px;transform:translate(-50%,-120%);white-space:nowrap}
+
+/* service banners */
+.services{padding:25px 0 105px}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service-card{min-height:250px;position:relative;overflow:hidden;color:#fff}
+.service-card img{position:absolute;inset:0;height:100%;object-fit:cover}
+.service-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.18))}
+.service-copy{position:relative;z-index:2;padding:38px;max-width:380px}
+.service-copy small{color:#d3ab48;font-size:11px}
+.service-copy h3{font-size:28px;margin:8px 0 10px}
+.service-copy p{font-size:12px;line-height:1.8;color:#ddd}
+.service-copy a{display:inline-flex;margin-top:16px;padding:10px 16px;border:1px solid #aaa;font-size:11px}
+
+/* categories */
+.categories{padding:20px 0 110px}
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.category{position:relative;min-height:205px;overflow:hidden;background:#eee}
+.category img{height:100%;object-fit:cover;position:absolute;inset:0}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95),rgba(255,255,255,.25))}
+.category-copy{position:relative;z-index:2;padding:28px;max-width:210px}
+.category-copy small{font-size:10px}
+.category-copy h3{font-size:23px;margin:7px 0 10px}
+.category-copy p{font-size:11px;line-height:1.6}
+.category-copy a{font-size:11px}
+
+
+/* detailed collections */
+.collections{
+  padding:30px 0 120px;
+  background:#fff;
+}
+.collection-block{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:42px;
+  align-items:stretch;
+  margin-bottom:34px;
+}
+.collection-block.reverse{
+  grid-template-columns:1.1fr .9fr;
+}
+.collection-visual{
+  min-height:420px;
+  overflow:hidden;
+  background:#eee;
+}
+.collection-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+.collection-visual:hover img{
+  transform:scale(1.025);
+}
+.collection-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:52px;
+  background:#f7f5f0;
+}
+.collection-copy small{
+  color:#b48627;
+  font-size:10px;
+  letter-spacing:.18em;
+  margin-bottom:14px;
+}
+.collection-copy h3{
+  margin:0 0 18px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:38px;
+  line-height:1.2;
+  font-weight:400;
+}
+.collection-copy p{
+  margin:0 0 22px;
+  color:#777;
+  font-size:12px;
+  line-height:2;
+}
+.collection-copy .mini-list{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:10px;
+}
+.collection-copy .mini{
+  border-top:1px solid #d8d1c5;
+  padding-top:12px;
+}
+.collection-copy .mini strong{
+  display:block;
+  font-size:12px;
+  margin-bottom:4px;
+}
+.collection-copy .mini span{
+  font-size:10px;
+  color:#888;
+}
+.collection-copy a{
+  margin-top:28px;
+  align-self:flex-start;
+  display:inline-flex;
+  gap:16px;
+  padding:12px 18px;
+  border:1px solid #bcae8d;
+  font-size:11px;
+}
+.collection-copy a:hover{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+@media(max-width:900px){
+  .collection-block,
+  .collection-block.reverse{
+    grid-template-columns:1fr;
+  }
+  .collection-copy{
+    padding:36px;
+  }
+}
+@media(max-width:680px){
+  .collections{padding:10px 0 82px}
+  .collection-block{margin-bottom:20px}
+  .collection-visual{min-height:300px}
+  .collection-copy{padding:28px 22px}
+  .collection-copy h3{font-size:30px}
+  .collection-copy .mini-list{grid-template-columns:1fr}
+}
+
+/* products */
+.products{padding:25px 0 120px}
+.section-title{text-align:center;font-size:24px;letter-spacing:.04em;margin-bottom:30px}
+.section-title:before,.section-title:after{content:"";display:inline-block;width:30px;height:1px;background:#777;vertical-align:middle;margin:0 12px}
+.product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.product{border:1px solid #e5e5e5;background:#fff;text-align:center}
+.product-img{aspect-ratio:1/1;background:#fafafa;overflow:hidden}
+.product-img img{height:100%;object-fit:cover}
+.product-info{padding:14px}
+.product-info h4{font-size:12px;margin:0 0 5px}
+.product-info strong{font-size:12px}
+.more{text-align:center;margin-top:24px}
+.more a{display:inline-flex;padding:11px 24px;border:1px solid #ccc;font-size:11px}
+
+/* trust + boutique */
+.trust{background:#fafafa;padding:110px 0 115px}
+.trust-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.trust-box{border-right:1px solid #ddd;padding-right:38px}
+.trust h3{font-size:22px;margin:0 0 30px}
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.icon-item{text-align:center}
+.icon{width:58px;height:58px;border:1px solid #d7b35a;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-size:24px;color:#b78c28}
+.icon-item strong{font-size:12px;display:block;margin-bottom:5px}
+.icon-item span{font-size:10px;color:#777;line-height:1.5}
+.boutique-title{font-size:13px;margin-bottom:18px}
+.boutique-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.boutique-grid img{height:180px;object-fit:cover}
+.store-btn{text-align:center;margin-top:16px}
+.store-btn a{display:inline-flex;padding:10px 24px;border:1px solid #ccc;font-size:11px}
+
+
+/* qualifications */
+.qualifications{
+  padding:115px 0;
+  background:#fff;
+}
+.qual-head{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:38px;
+}
+.qual-head small{
+  display:block;
+  font-size:10px;
+  letter-spacing:.18em;
+  color:#b28a2e;
+  margin-bottom:10px;
+}
+.qual-head h2{
+  margin:0;
+  font-size:31px;
+  font-weight:600;
+  letter-spacing:-.03em;
+}
+.qual-head p{
+  margin:0;
+  color:#777;
+  font-size:12px;
+  line-height:1.9;
+}
+.qual-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.qual-card{
+  border:1px solid #e5e5e5;
+  background:#fafafa;
+  padding:20px;
+  min-height:285px;
+  display:flex;
+  flex-direction:column;
+}
+.qual-paper{
+  flex:1;
+  min-height:170px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1px solid #eee;
+  color:#bbb;
+  font-family:Georgia,serif;
+  font-size:15px;
+  letter-spacing:.06em;
+  margin-bottom:18px;
+  position:relative;
+  overflow:hidden;
+}
+.qual-paper:before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid #eee4c9;
+}
+.qual-paper span{position:relative;z-index:2}
+.qual-card small{
+  color:#b38a2d;
+  font-size:9px;
+  letter-spacing:.14em;
+}
+.qual-card h3{
+  font-size:14px;
+  margin:7px 0 6px;
+}
+.qual-card p{
+  margin:0;
+  color:#888;
+  font-size:10px;
+  line-height:1.6;
+}
+.qual-note{
+  margin-top:18px;
+  color:#999;
+  font-size:10px;
+  line-height:1.7;
+}
+@media(max-width:1000px){
+  .qual-head{grid-template-columns:1fr;gap:20px}
+  .qual-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+  .qualifications{padding:82px 0}
+  .qual-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .qual-card{padding:12px;min-height:235px}
+  .qual-paper{min-height:135px}
+  .qual-head h2{font-size:26px}
+}
+
+/* footer */
+.footer{background:#080808;color:#fff;padding:70px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,.8fr) 1fr;gap:40px}
+.footer-logo img{width:190px;margin-bottom:14px}
+.footer p,.footer li{font-size:10px;line-height:1.9;color:#999}
+.footer ul{padding:0;margin:0;list-style:none}
+.footer h4{font-size:13px;margin:0 0 14px}
+.contact-box{border:1px solid #6b5425;padding:20px}
+.contact-box strong{display:block;color:#d7ad45;font-size:12px;margin-bottom:12px}
+.contact-box .phone{font-size:18px;color:#fff}
+.copyright{text-align:center;border-top:1px solid #222;margin-top:34px;padding-top:18px;font-size:9px;color:#666}
+
+/* responsive */
+@media(max-width:1000px){
+  .nav{display:none}
+  .header-inner{grid-template-columns:auto 1fr}
+  .header-side{justify-self:end}
+  .ticker-grid{grid-template-columns:1.2fr repeat(2,1fr)}
+  .tick:nth-child(n+4){display:none}
+  .market-grid,.trust-grid{grid-template-columns:1fr}
+  .trust-box{border-right:0;padding-right:0}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:680px){
+  .wrap,.header-inner,.ticker>.wrap{width:min(100% - 28px,var(--max))}
+  .header{height:70px}
+  .logo img{width:155px}
+  .header-side .phone-text{display:none}
+  .hero{min-height:560px;background-position:62% center}
+  .hero h1{font-size:37px}
+  .hero-copy{max-width:360px}
+  .ticker-grid{grid-template-columns:1fr 1fr}
+  .tick:first-child{grid-column:1/-1}
+  .market{padding:72px 0 82px}
+  .market-grid{gap:42px}
+  .service-grid,.category-grid{grid-template-columns:1fr}
+  .service-card{min-height:230px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .icon-grid{grid-template-columns:repeat(2,1fr);gap:25px}
+  .boutique-grid{grid-template-columns:repeat(2,1fr)}
+  .boutique-grid img{height:140px}
+
+  .services{padding:15px 0 72px}
+  .categories{padding:10px 0 78px}
+  .products{padding:10px 0 82px}
+  .trust{padding:78px 0 82px}
+  .footer{padding:55px 0 24px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#"><img src="https://cdn.imweb.me/upload/S202607020131cea507ca6/ee683c812d3a2.png" alt="BOLDORO"></a>
+    <nav class="nav">
+      <a href="#about">BOLDORO 소개</a>
+      <a href="#goldbar">골드바 구매</a>
+      <a href="#buying">금매입</a>
+      <a href="#jewelry">주얼리</a>
+      <a href="#diamond">다이아몬드</a>
+      <a href="#qualifications">자격사항</a>
+      <a href="#store">매장안내</a>
+      <a href="#contact">고객센터</a>
+    </nav>
+    <div class="header-side">
+      <span class="phone-text">☎ 010-3970-2418</span>
+      <span class="menu-icon">☰</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-kicker">VALUE BEYOND GOLD</div>
+      <h1>가치를 아는 당신의<br>선택, 볼도르</h1>
+      <p>골드바 구매와 금매입, 다이아몬드와 주얼리까지<br>신뢰와 전문성으로 최고의 가치를 전합니다.</p>
+      <a class="btn gold" href="#contact">상담 예약하기 <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="ticker">
+  <div class="wrap ticker-grid">
+    <div class="tick"><small>실시간 금시세</small><strong>오늘의 기준가</strong></div>
+    <div class="tick"><small>국제 금시세</small><strong class="up">3,226.58</strong></div>
+    <div class="tick"><small>국내 금시세</small><strong>147,350원</strong></div>
+    <div class="tick"><small>18K 매입시세</small><strong>108,500원</strong></div>
+    <div class="tick"><small>14K 매입시세</small><strong>84,300원</strong></div>
+    <div class="tick tick-action"><a class="btn" href="#market">자세히 보기 →</a></div>
+  </div>
+</section>
+
+
+<section class="brand-intro">
+  <div class="wrap brand-intro-grid">
+    <div>
+      <div class="brand-intro-no">01 / BOLDORO</div>
+      <h2>Gold deserves<br>an honest value.</h2>
+    </div>
+
+    <div class="brand-intro-copy">
+      <p class="lead">
+        아름다운 주얼리를 고르는 순간부터,<br>
+        소중한 금을 정확하게 평가받는 순간까지.
+      </p>
+      <p class="desc">
+        BOLDORO는 단순한 금매입점을 넘어 금·다이아몬드·주얼리에 대한 전문성과 신뢰를 제공하는 공간을 지향합니다.
+        시세는 투명하게, 감정은 전문적으로, 디자인은 오래도록 기억될 수 있도록 제안합니다.
+      </p>
+      <div class="brand-intro-sign">BOLDORO Gold &amp; Jewelry</div>
+    </div>
+  </div>
+</section>
+
+<section class="market" id="market">
+  <div class="wrap market-grid">
+    <div>
+      <h2>오늘의 금시세</h2>
+      <table class="price-table">
+        <thead><tr><th>종류</th><th>내가 살 때</th><th>내가 팔 때</th></tr></thead>
+        <tbody>
+          <tr><td>24K 순금<br><small>(99.5%)</small></td><td class="gold">147,350</td><td class="gold">153,000</td></tr>
+          <tr><td>18K 금<br><small>(75.0%)</small></td><td class="gold">108,500</td><td>-</td></tr>
+          <tr><td>14K 금<br><small>(58.5%)</small></td><td class="gold">84,300</td><td>-</td></tr>
+          <tr><td>백금<br><small>(Pt999)</small></td><td class="gold">182,000</td><td>-</td></tr>
+          <tr><td>은<br><small>(Ag999)</small></td><td class="gold">1,650</td><td>-</td></tr>
+        </tbody>
+      </table>
+      <div class="market-note">* 시세는 실시간 변동될 수 있으며, 중량 및 순도에 따라 금액이 달라질 수 있습니다.</div>
+    </div>
+    <div>
+      <h2>국내 금시세 그래프</h2>
+      <div class="chart-tabs">
+        <button class="active" data-r="1">1개월</button>
+        <button data-r="3">3개월</button>
+        <button data-r="6">6개월</button>
+        <button data-r="12">1년</button>
+        <button data-r="36">3년</button>
+      </div>
+      <div class="chart-box">
+        <svg id="chart" viewBox="0 0 700 300" preserveAspectRatio="none"></svg>
+        <div id="tip"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap service-grid">
+    <article class="service-card" id="goldbar">
+      <img src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1400&q=90" alt="골드바">
+      <div class="service-copy">
+        <small>GOLD BAR</small>
+        <h3>골드바 구매 상담</h3>
+        <p>한국금거래소 공인 인증 골드바를 안전하고 합리적인 가격으로 안내보세요.</p>
+        <a href="goldbar_detail.html">자세히 보기 →</a>
+      </div>
+    </article>
+    <article class="service-card" id="buying">
+      <img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=1400&q=90" alt="금매입">
+      <div class="service-copy">
+        <small>GOLD BUYING</small>
+        <h3>금매입 상담</h3>
+        <p>순금, 18K, 14K, 골드바, 금반지, 금목걸이, 금팔찌, 치금, 백금, 은 등 모든 금제품 매입</p>
+        <a href="#contact">자세히 보기 →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="categories" id="jewelry">
+  <div class="wrap category-grid">
+    <article class="category" id="diamond">
+      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1100&q=88" alt="">
+      <div class="category-copy"><small>DIAMOND</small><h3>다이아몬드</h3><p>최고의 다이아몬드 컬렉션</p><a href="#diamond-collection">더보기 →</a></div>
+    </article>
+    <article class="category">
+      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1100&q=88" alt="">
+      <div class="category-copy"><small>WEDDING</small><h3>웨딩 & 예물</h3><p>평생의 가치를 담은 특별한 웨딩 & 예물</p><a href="#wedding-collection">더보기 →</a></div>
+    </article>
+    <article class="category">
+      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1100&q=88" alt="">
+      <div class="category-copy"><small>DAILY JEWELRY</small><h3>데일리 주얼리</h3><p>일상에 빛나는 아름다움을 더하는 주얼리</p><a href="#daily-collection">더보기 →</a></div>
+    </article>
+  </div>
+</section>
+
+
+<section class="collections">
+  <div class="wrap">
+
+    <article class="collection-block" id="diamond-collection">
+      <div class="collection-visual">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=90" alt="다이아몬드 컬렉션">
+      </div>
+      <div class="collection-copy">
+        <small>DIAMOND COLLECTION</small>
+        <h3>다이아몬드 컬렉션</h3>
+        <p>
+          클래식 솔리테어부터 기념일을 위한 다이아몬드 주얼리까지,
+          예산과 취향에 맞춰 1:1로 안내합니다.
+        </p>
+        <div class="mini-list">
+          <div class="mini"><strong>Diamond Ring</strong><span>다이아 반지</span></div>
+          <div class="mini"><strong>Diamond Necklace</strong><span>다이아 목걸이</span></div>
+          <div class="mini"><strong>1:1 Setting</strong><span>맞춤 세팅 상담</span></div>
+        </div>
+        <a href="#contact">다이아몬드 상담하기 <span>→</span></a>
+      </div>
+    </article>
+
+    <article class="collection-block reverse" id="wedding-collection">
+      <div class="collection-copy">
+        <small>WEDDING COLLECTION</small>
+        <h3>웨딩 & 예물</h3>
+        <p>
+          두 사람의 취향과 스토리에 맞춘 웨딩링과 예물 주얼리를 제안합니다.
+          디자인, 소재, 예산을 함께 고려해 편안하게 상담받을 수 있습니다.
+        </p>
+        <div class="mini-list">
+          <div class="mini"><strong>Wedding Ring</strong><span>웨딩링</span></div>
+          <div class="mini"><strong>Couple Ring</strong><span>커플링</span></div>
+          <div class="mini"><strong>Custom Jewelry</strong><span>맞춤 예물</span></div>
+        </div>
+        <a href="#contact">웨딩 상담 예약 <span>→</span></a>
+      </div>
+      <div class="collection-visual">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=90" alt="웨딩 예물 컬렉션">
+      </div>
+    </article>
+
+    <article class="collection-block" id="daily-collection">
+      <div class="collection-visual">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=90" alt="데일리 주얼리 컬렉션">
+      </div>
+      <div class="collection-copy">
+        <small>DAILY JEWELRY</small>
+        <h3>데일리 주얼리</h3>
+        <p>
+          매일 부담 없이 착용할 수 있는 14K·18K 골드 주얼리부터
+          선물용 아이템까지 볼도르의 감각으로 큐레이션합니다.
+        </p>
+        <div class="mini-list">
+          <div class="mini"><strong>Necklace</strong><span>목걸이</span></div>
+          <div class="mini"><strong>Earring</strong><span>귀걸이</span></div>
+          <div class="mini"><strong>Bracelet & Ring</strong><span>팔찌·반지</span></div>
+        </div>
+        <a href="#best-jewelry">BEST JEWELRY 보기 <span>→</span></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="products" id="best-jewelry">
+  <div class="wrap">
+    <div class="section-title">BEST JEWELRY</div>
+    <div class="product-grid">
+      <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=86" alt=""></div><div class="product-info"><h4>14K 골드 목걸이</h4><strong>398,000원</strong></div></article>
+      <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=86" alt=""></div><div class="product-info"><h4>18K 골드 반지</h4><strong>580,000원</strong></div></article>
+      <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=700&q=86" alt=""></div><div class="product-info"><h4>14K 골드 팔찌</h4><strong>420,000원</strong></div></article>
+      <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=86" alt=""></div><div class="product-info"><h4>18K 골드 귀걸이</h4><strong>350,000원</strong></div></article>
+      <article class="product"><div class="product-img"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=700&q=86" alt=""></div><div class="product-info"><h4>14K 골드 펜던트</h4><strong>280,000원</strong></div></article>
+    </div>
+    <div class="more"><a href="#">더 많은 제품 보기 →</a></div>
+  </div>
+</section>
+
+
+<section class="qualifications" id="qualifications">
+  <div class="wrap">
+    <div class="qual-head">
+      <div>
+        <small>LICENSE & CERTIFICATION</small>
+        <h2>전문성을 증명하는 자격사항</h2>
+      </div>
+      <p>
+        금·보석·주얼리 상담과 감정에 관련된 자격 및 인증 내용을 한눈에 확인할 수 있는 영역입니다.
+        실제 보유 자격증 이미지와 자격명, 발급기관, 취득연도를 입력하면 전문성과 신뢰도를 더욱 효과적으로 전달할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="qual-grid">
+      <article class="qual-card">
+        <div class="qual-paper"><span>CERTIFICATE 01</span></div>
+        <small>QUALIFICATION 01</small>
+        <h3>자격사항명 입력</h3>
+        <p>발급기관 / 취득연도 입력</p>
+      </article>
+
+      <article class="qual-card">
+        <div class="qual-paper"><span>CERTIFICATE 02</span></div>
+        <small>QUALIFICATION 02</small>
+        <h3>자격사항명 입력</h3>
+        <p>발급기관 / 취득연도 입력</p>
+      </article>
+
+      <article class="qual-card">
+        <div class="qual-paper"><span>CERTIFICATE 03</span></div>
+        <small>QUALIFICATION 03</small>
+        <h3>자격사항명 입력</h3>
+        <p>발급기관 / 취득연도 입력</p>
+      </article>
+
+      <article class="qual-card">
+        <div class="qual-paper"><span>CERTIFICATE 04</span></div>
+        <small>QUALIFICATION 04</small>
+        <h3>자격사항명 입력</h3>
+        <p>발급기관 / 취득연도 입력</p>
+      </article>
+    </div>
+
+    <div class="qual-note">
+      ※ 위 자격사항은 디자인용 입력란입니다. 실제 보유 자격증명·발급기관·취득연도 및 자격증 이미지를 넣어 사용하세요.
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="store">
+  <div class="wrap trust-grid">
+    <div class="trust-box">
+      <h3>신뢰할 수 있는 감정과 인증</h3>
+      <div class="icon-grid">
+        <div class="icon-item"><div class="icon">◉</div><strong>전문 감정사</strong><span>정확한 감정과<br>전문 상담</span></div>
+        <div class="icon-item"><div class="icon">◇</div><strong>정품 보증서</strong><span>모든 제품<br>보증서 제공</span></div>
+        <div class="icon-item"><div class="icon">✓</div><strong>안전한 거래</strong><span>신뢰를 최우선으로<br>안전한 거래</span></div>
+        <div class="icon-item"><div class="icon">♙</div><strong>최고가 매입</strong><span>정확한 가격으로<br>최고가 매입</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="boutique-title">BOLDORO BOUTIQUE</div>
+      <div class="boutique-grid">
+        <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=700&q=86" alt="">
+        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=86" alt="">
+        <img src="https://images.unsplash.com/photo-1601821765780-754fa98637c1?auto=format&fit=crop&w=700&q=86" alt="">
+        <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?auto=format&fit=crop&w=700&q=86" alt="">
+      </div>
+      <div class="store-btn"><a href="#">매장 둘러보기 →</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="https://cdn.imweb.me/upload/S202607020131cea507ca6/ee683c812d3a2.png" alt="BOLDORO"></div>
+        <p>부산광역시 부산진구 가야대로 772 1층(부전동)<br>Tel. 010-3970-2418</p>
+      </div>
+      <div><h4>고객센터</h4><ul><li>공지사항</li><li>자주 묻는 질문</li><li>1:1 상담 문의</li><li>이용 안내</li></ul></div>
+      <div><h4>이용 안내</h4><ul><li>개인정보처리방침</li><li>이용약관</li><li>매입 절차 안내</li><li>배송 안내</li></ul></div>
+      <div><h4>서비스</h4><ul><li>골드바 구매</li><li>금매입 상담</li><li>주얼리 상담</li><li>다이아몬드 상담</li></ul></div>
+      <div class="contact-box">
+        <strong>상담 및 예약</strong>
+        <div class="phone">☎ 010-3970-2418</div>
+        <p>평일 10:00 - 19:00<br>(주말/공휴일 예약 상담 가능)</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 BOLDORO. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+const data={
+1:[126,130,135,139,142,141,142,143,141,150,153,155,154,150,145,140,139,135,140,143],
+3:[118,122,126,131,135,138,141,140,143,145,147,151,149,154,157,155,151,148,145,149],
+6:[111,115,118,121,126,130,134,137,140,139,145,149,151,153,156,154,150,146,149,152],
+12:[103,108,112,117,120,124,128,132,136,140,143,147,151,154,152,156,158,155,153,157],
+36:[80,85,91,96,102,108,114,120,126,131,136,141,146,151,155,160,157,161,165,168]
+};
+const svg=document.getElementById("chart"),tip=document.getElementById("tip");
+function draw(r=1){
+ const v=data[r],W=700,H=300,px=24,py=28,min=Math.min(...v)-5,max=Math.max(...v)+5;
+ const pts=v.map((n,i)=>({x:px+i*(W-px*2)/(v.length-1),y:H-py-(n-min)*(H-py*2)/(max-min),v:n}));
+ const line=pts.map((p,i)=>(i?"L":"M")+p.x+","+p.y).join(" ");
+ const area=line+` L ${pts.at(-1).x},${H-py} L ${pts[0].x},${H-py} Z`;
+ svg.innerHTML=`<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7a42d" stop-opacity=".25"/><stop offset="1" stop-color="#d7a42d" stop-opacity="0"/></linearGradient></defs><path d="${area}" fill="url(#g)"/><path d="${line}" fill="none" stroke="#d49b1e" stroke-width="2.2"/>${pts.map((p,i)=>`<circle data-i="${i}" cx="${p.x}" cy="${p.y}" r="10" fill="transparent"></circle>`).join("")}`;
+ svg.querySelectorAll("circle").forEach(c=>{
+  c.onmouseenter=()=>{const p=pts[+c.dataset.i],b=svg.getBoundingClientRect();tip.style.display="block";tip.textContent=(p.v*1000).toLocaleString()+"원";tip.style.left=(p.x/W*b.width)+"px";tip.style.top=(p.y/H*b.height)+"px"};
+  c.onmouseleave=()=>tip.style.display="none";
+ });
+}
+draw(1);
+document.querySelectorAll(".chart-tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".chart-tabs button").forEach(x=>x.classList.remove("active"));b.classList.add("active");draw(+b.dataset.r)});
+</script>
+</body>
+</html>
