@@ -375,7 +375,21 @@ img{display:block;width:100%}
   inset:14px;
   border:1px solid #eee4c9;
 }
-.qual-paper span{position:relative;z-index:2}
+.qual-paper span{position:relative;z-index:2;transition:opacity .2s ease}
+.qual-paper img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#fff;
+  opacity:0;
+  z-index:3;
+  transition:opacity .2s ease;
+}
+.qual-paper.has-local-image img{opacity:1}
+.qual-paper.has-local-image span{opacity:0}
+.qual-paper.has-local-image:before{display:none}
 .qual-card small{
   color:#b38a2d;
   font-size:9px;
@@ -697,28 +711,40 @@ img{display:block;width:100%}
 
     <div class="qual-grid">
       <article class="qual-card">
-        <div class="qual-paper"><span>CERTIFICATE 01</span></div>
+        <div class="qual-paper">
+          <span>CERTIFICATE 01</span>
+          <img src="" data-local="images/certificate-01.jpg" alt="자격사항 01">
+        </div>
         <small>QUALIFICATION 01</small>
         <h3>자격사항명 입력</h3>
         <p>발급기관 / 취득연도 입력</p>
       </article>
 
       <article class="qual-card">
-        <div class="qual-paper"><span>CERTIFICATE 02</span></div>
+        <div class="qual-paper">
+          <span>CERTIFICATE 02</span>
+          <img src="" data-local="images/certificate-02.jpg" alt="자격사항 02">
+        </div>
         <small>QUALIFICATION 02</small>
         <h3>자격사항명 입력</h3>
         <p>발급기관 / 취득연도 입력</p>
       </article>
 
       <article class="qual-card">
-        <div class="qual-paper"><span>CERTIFICATE 03</span></div>
+        <div class="qual-paper">
+          <span>CERTIFICATE 03</span>
+          <img src="" data-local="images/certificate-03.jpg" alt="자격사항 03">
+        </div>
         <small>QUALIFICATION 03</small>
         <h3>자격사항명 입력</h3>
         <p>발급기관 / 취득연도 입력</p>
       </article>
 
       <article class="qual-card">
-        <div class="qual-paper"><span>CERTIFICATE 04</span></div>
+        <div class="qual-paper">
+          <span>CERTIFICATE 04</span>
+          <img src="" data-local="images/certificate-04.jpg" alt="자격사항 04">
+        </div>
         <small>QUALIFICATION 04</small>
         <h3>자격사항명 입력</h3>
         <p>발급기관 / 취득연도 입력</p>
