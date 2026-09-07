@@ -706,27 +706,6 @@ img{display:block;width:100%}
   .footer-grid{grid-template-columns:1fr}
 }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style id="boldoro-floating-contact-style">
-.boldoro-floating-contact{position:fixed!important;right:28px!important;bottom:28px!important;z-index:99998!important;display:flex;flex-direction:column;gap:12px}
-.boldoro-contact-item{position:relative;display:flex;align-items:center}
-.boldoro-contact-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-sizing:border-box;box-shadow:0 7px 22px rgba(0,0,0,.20);transition:transform .25s ease,box-shadow .25s ease}
-.boldoro-contact-btn:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.26)}
-.boldoro-contact-btn i{font-size:25px}
-.boldoro-phone{background:#03c75a;border:2px solid #03ab4d;color:#fff!important}
-.boldoro-phone:hover{background:#03ab4d;border-color:#03ab4d}
-.boldoro-kakao{background:#f7d94c;border:2px solid #e8c83b;color:#2b241d!important}
-.boldoro-contact-label{position:absolute;right:76px;padding:8px 11px;background:#111;color:#fff;font-size:11px;white-space:nowrap;opacity:0;transform:translateX(6px);pointer-events:none;transition:.2s ease;border-radius:3px}
-.boldoro-contact-item:hover .boldoro-contact-label{opacity:1;transform:translateX(0)}
-@media(max-width:768px){
-.boldoro-floating-contact{right:16px!important;bottom:18px!important;gap:10px}
-.boldoro-contact-btn{width:56px;height:56px}
-.boldoro-contact-btn i{font-size:22px}
-.boldoro-contact-label{display:none}
-}
-</style>
-
 </head>
 <body>
 
@@ -1873,7 +1852,6 @@ img{display:block;width:100%}
           <div class="mini"><strong>Diamond Necklace</strong><span>다이아 목걸이</span></div>
           <div class="mini"><strong>1:1 Setting</strong><span>맞춤 세팅 상담</span></div>
         </div>
-        <a href="#contact">다이아몬드 상담하기 <span>→</span></a>
       </div>
     </article>
 
@@ -1890,7 +1868,6 @@ img{display:block;width:100%}
           <div class="mini"><strong>Couple Ring</strong><span>커플링</span></div>
           <div class="mini"><strong>Custom Jewelry</strong><span>맞춤 예물</span></div>
         </div>
-        <a href="#contact">웨딩 상담 예약 <span>→</span></a>
       </div>
       <div class="collection-visual">
         <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=90" data-local="images/wedding-detail.jpg" alt="웨딩 예물 컬렉션">
@@ -1913,7 +1890,6 @@ img{display:block;width:100%}
           <div class="mini"><strong>Earring</strong><span>귀걸이</span></div>
           <div class="mini"><strong>Bracelet & Ring</strong><span>팔찌·반지</span></div>
         </div>
-        <a href="#best-jewelry">BEST JEWELRY 보기 <span>→</span></a>
       </div>
     </article>
 
@@ -2169,10 +2145,10 @@ img{display:block;width:100%}
     <div>
       <div class="boutique-title">BOLDORO BOUTIQUE</div>
       <div class="boutique-grid">
-        <img src="images/boutique/boutique-exterior.jpg" alt="BOLDORO 매장 외관">
-        <img src="images/boutique/boutique-showcase.jpg" alt="BOLDORO 주얼리 쇼케이스">
-        <img src="images/boutique/boutique-front.jpg" alt="BOLDORO 매장 전면">
-        <img src="images/boutique/boutique-interior.jpg" alt="BOLDORO 매장 내부">
+        <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&w=700&q=86" data-local="images/product-01.jpg" alt="">
+        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=700&q=86" data-local="images/store-04.jpg" alt="">
+        <img src="https://images.unsplash.com/photo-1601821765780-754fa98637c1?auto=format&fit=crop&w=700&q=86" data-local="images/store-01.jpg" alt="">
+        <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?auto=format&fit=crop&w=700&q=86" data-local="images/product-04.jpg" alt="">
       </div>
       <div class="store-btn"><a href="#">매장 둘러보기 →</a></div>
     </div>
@@ -2349,19 +2325,6 @@ document.querySelectorAll(".chart-tabs button").forEach(b=>b.onclick=()=>{docume
   });
 })();
 </script>
-
-
-<!-- BOLDORO FLOATING CONTACT -->
-<div class="boldoro-floating-contact">
-  <div class="boldoro-contact-item">
-    <span class="boldoro-contact-label">전화상담</span>
-    <a href="tel:010-3970-2418" class="boldoro-contact-btn boldoro-phone" aria-label="전화상담"><i class="fa fa-phone" aria-hidden="true"></i></a>
-  </div>
-  <div class="boldoro-contact-item">
-    <span class="boldoro-contact-label">카카오톡 상담</span>
-    <a href="http://pf.kakao.com/_Qisen/chat" class="boldoro-contact-btn boldoro-kakao" target="_blank" rel="noopener" aria-label="카카오톡 상담"><i class="fa fa-commenting" aria-hidden="true"></i></a>
-  </div>
-</div>
 
 </body>
 </html>
