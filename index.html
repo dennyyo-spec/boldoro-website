@@ -706,6 +706,87 @@ img{display:block;width:100%}
   .footer-grid{grid-template-columns:1fr}
 }
 </style>
+
+
+/* =========================
+   FOOTER SNS LINKS
+========================= */
+.footer-social-row{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:16px;
+  margin-top:24px;
+}
+.footer-social-row a{
+  width:28px;
+  height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  text-decoration:none;
+  transition:opacity .2s ease, transform .2s ease;
+}
+.footer-social-row a:hover{opacity:.72;transform:translateY(-2px)}
+.footer-social-row .sns-instagram{
+  border:2px solid #fff;
+  border-radius:8px;
+  color:#fff;
+  font-size:19px;
+}
+.footer-social-row .sns-blog{
+  width:31px;
+  height:22px;
+  border-radius:5px;
+  background:#fff;
+  color:#111;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  position:relative;
+}
+.footer-social-row .sns-blog:after{
+  content:"";
+  position:absolute;
+  left:6px;
+  bottom:-4px;
+  border-width:4px 4px 0 0;
+  border-style:solid;
+  border-color:#fff transparent transparent transparent;
+}
+.footer-social-row .sns-naver{
+  width:22px;
+  height:22px;
+  background:#fff;
+  color:#111;
+  font-size:16px;
+  font-weight:900;
+  line-height:1;
+}
+.footer-social-row .sns-kakao{
+  width:29px;
+  height:22px;
+  border-radius:50%;
+  background:#fee500;
+  color:#111;
+  font-size:8px;
+  font-weight:900;
+  position:relative;
+}
+.footer-social-row .sns-kakao:after{
+  content:"";
+  position:absolute;
+  left:5px;
+  bottom:-3px;
+  border-width:4px 4px 0 0;
+  border-style:solid;
+  border-color:#fee500 transparent transparent transparent;
+}
+@media(max-width:767px){
+  .footer-social-row{justify-content:flex-start;margin-top:22px;gap:14px}
+}
+
 </head>
 <body>
 
@@ -2170,6 +2251,13 @@ img{display:block;width:100%}
         <div class="phone">☎ 010-3970-2418</div>
         <p>평일 10:00 - 19:00<br>(주말/공휴일 예약 상담 가능)</p>
       </div>
+    </div>
+
+    <div class="footer-social-row" aria-label="BOLDORO SNS">
+      <a class="sns-instagram" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+      <a class="sns-blog" href="https://search.naver.com/search.naver?where=blog&query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC" target="_blank" rel="noopener" aria-label="Naver Blog">blog</a>
+      <a class="sns-naver" href="https://search.naver.com/search.naver?query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC%20%EA%B8%88%EA%B1%B0%EB%9E%98%EC%86%8C" target="_blank" rel="noopener" aria-label="Naver">N</a>
+      <a class="sns-kakao" href="http://pf.kakao.com/_Qisen/chat" target="_blank" rel="noopener" aria-label="KakaoTalk">TALK</a>
     </div>
     <div class="copyright">© 2026 BOLDORO. All Rights Reserved.</div>
   </div>
