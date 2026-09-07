@@ -708,84 +708,95 @@ img{display:block;width:100%}
 </style>
 
 
-/* =========================
-   FOOTER SNS LINKS
-========================= */
+<style id="boldoro-footer-sns-icon-fix">
 .footer-social-row{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:16px;
-  margin-top:24px;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:13px !important;
+  margin-top:24px !important;
 }
-.footer-social-row a{
-  width:28px;
-  height:28px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  box-sizing:border-box;
-  text-decoration:none;
-  transition:opacity .2s ease, transform .2s ease;
+.footer-social-row .sns-icon{
+  width:25px !important;
+  height:25px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  text-decoration:none !important;
+  box-sizing:border-box !important;
+  position:relative !important;
 }
-.footer-social-row a:hover{opacity:.72;transform:translateY(-2px)}
 .footer-social-row .sns-instagram{
-  border:2px solid #fff;
-  border-radius:8px;
-  color:#fff;
-  font-size:19px;
+  border:0 !important;
+  background:transparent !important;
+  color:#fff !important;
+  font-size:24px !important;
 }
-.footer-social-row .sns-blog{
-  width:31px;
-  height:22px;
-  border-radius:5px;
-  background:#fff;
-  color:#111;
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:-.5px;
-  position:relative;
+.footer-social-row .sns-instagram i{font-size:24px !important;line-height:1 !important}
+
+.footer-social-row .blog-bubble{
+  width:25px !important;
+  height:19px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#fff !important;
+  color:#111 !important;
+  border-radius:4px !important;
+  font-size:7px !important;
+  line-height:1 !important;
+  position:relative !important;
 }
-.footer-social-row .sns-blog:after{
-  content:"";
-  position:absolute;
-  left:6px;
-  bottom:-4px;
-  border-width:4px 4px 0 0;
-  border-style:solid;
-  border-color:#fff transparent transparent transparent;
+.footer-social-row .blog-bubble:after{
+  content:"" !important;
+  position:absolute !important;
+  left:6px !important;
+  bottom:-4px !important;
+  width:0 !important;height:0 !important;
+  border-top:5px solid #fff !important;
+  border-right:5px solid transparent !important;
 }
-.footer-social-row .sns-naver{
-  width:22px;
-  height:22px;
-  background:#fff;
-  color:#111;
-  font-size:16px;
-  font-weight:900;
-  line-height:1;
+.footer-social-row .naver-box{
+  width:21px !important;
+  height:21px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#fff !important;
+  color:#050505 !important;
+  font-family:Arial,sans-serif !important;
+  font-size:16px !important;
+  font-weight:900 !important;
+  line-height:1 !important;
 }
-.footer-social-row .sns-kakao{
-  width:29px;
-  height:22px;
-  border-radius:50%;
-  background:#fee500;
-  color:#111;
-  font-size:8px;
-  font-weight:900;
-  position:relative;
+.footer-social-row .kakao-bubble{
+  width:24px !important;
+  height:20px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#fee500 !important;
+  color:#111 !important;
+  border-radius:50% !important;
+  position:relative !important;
 }
-.footer-social-row .sns-kakao:after{
-  content:"";
-  position:absolute;
-  left:5px;
-  bottom:-3px;
-  border-width:4px 4px 0 0;
-  border-style:solid;
-  border-color:#fee500 transparent transparent transparent;
+.footer-social-row .kakao-bubble:after{
+  content:"" !important;
+  position:absolute !important;
+  left:5px !important;
+  bottom:-3px !important;
+  width:0 !important;height:0 !important;
+  border-top:5px solid #fee500 !important;
+  border-right:5px solid transparent !important;
 }
-@media(max-width:767px){
-  .footer-social-row{justify-content:flex-start;margin-top:22px;gap:14px}
+.footer-social-row .kakao-bubble i{
+  font-size:11px !important;
+  color:#111 !important;
 }
+.footer-social-row .sns-icon:hover{opacity:.75 !important;transform:translateY(-2px) !important}
+</style>
 
 </head>
 <body>
@@ -2254,10 +2265,18 @@ img{display:block;width:100%}
     </div>
 
     <div class="footer-social-row" aria-label="BOLDORO SNS">
-      <a class="sns-instagram" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-      <a class="sns-blog" href="https://search.naver.com/search.naver?where=blog&query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC" target="_blank" rel="noopener" aria-label="Naver Blog">blog</a>
-      <a class="sns-naver" href="https://search.naver.com/search.naver?query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC%20%EA%B8%88%EA%B1%B0%EB%9E%98%EC%86%8C" target="_blank" rel="noopener" aria-label="Naver">N</a>
-      <a class="sns-kakao" href="http://pf.kakao.com/_Qisen/chat" target="_blank" rel="noopener" aria-label="KakaoTalk">TALK</a>
+      <a class="sns-icon sns-instagram" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener" aria-label="Instagram">
+        <i class="fa fa-instagram"></i>
+      </a>
+      <a class="sns-icon sns-blog" href="https://search.naver.com/search.naver?where=blog&amp;query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC" target="_blank" rel="noopener" aria-label="Naver Blog">
+        <span class="blog-bubble"><b>blog</b></span>
+      </a>
+      <a class="sns-icon sns-naver" href="https://search.naver.com/search.naver?query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC%20%EA%B8%88%EA%B1%B0%EB%9E%98%EC%86%8C" target="_blank" rel="noopener" aria-label="Naver">
+        <span class="naver-box">N</span>
+      </a>
+      <a class="sns-icon sns-kakao" href="http://pf.kakao.com/_Qisen/chat" target="_blank" rel="noopener" aria-label="KakaoTalk">
+        <span class="kakao-bubble"><i class="fa fa-commenting"></i></span>
+      </a>
     </div>
     <div class="copyright">© 2026 BOLDORO. All Rights Reserved.</div>
   </div>
