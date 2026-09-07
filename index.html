@@ -273,6 +273,23 @@ img{display:block;width:100%}
 @media(max-width:680px){
   .collections{padding:10px 0 82px}
   .collection-block{margin-bottom:20px}
+
+  /* 모바일: 모든 컬렉션을 사진 → 설명 순서로 표시 */
+  .collection-block,
+  .collection-block.reverse{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .collection-block .collection-visual,
+  .collection-block.reverse .collection-visual{
+    order:1;
+  }
+  .collection-block .collection-copy,
+  .collection-block.reverse .collection-copy{
+    order:2;
+  }
+
   .collection-visual{min-height:300px}
   .collection-copy{padding:28px 22px}
   .collection-copy h3{font-size:30px}
