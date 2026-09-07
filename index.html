@@ -189,9 +189,15 @@ img{display:block;width:100%}
   grid-template-columns:1.1fr .9fr;
 }
 .collection-visual{
-  min-height:420px;
+  min-height:0;
+  height:360px;
   overflow:hidden;
   background:#eee;
+}
+
+/* 웨딩 & 예물 사진: 펜던트가 잘 보이도록 초점 위치 조정 */
+#wedding-collection .collection-visual img{
+  object-position:center 62%;
 }
 .collection-visual img{
   width:100%;
@@ -301,6 +307,9 @@ img{display:block;width:100%}
     width:100%;
     height:100%;
     object-fit:cover;
+  }
+  #wedding-collection .collection-visual img{
+    object-position:center 58%;
   }
 
   .collection-copy{padding:28px 22px}
