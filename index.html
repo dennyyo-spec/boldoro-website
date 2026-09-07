@@ -403,15 +403,16 @@ img{display:block;width:100%}
 
 /* qualifications */
 .qualifications{
-  padding:115px 0;
-  background:#fff;
+  padding:108px 0 112px;
+  background:#fbfaf7;
+  overflow:hidden;
 }
 .qual-head{
   display:grid;
   grid-template-columns:.8fr 1.2fr;
   gap:60px;
   align-items:end;
-  margin-bottom:38px;
+  margin-bottom:42px;
 }
 .qual-head small{
   display:block;
@@ -432,86 +433,133 @@ img{display:block;width:100%}
   font-size:12px;
   line-height:1.9;
 }
-.qual-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-.qual-card{
-  border:1px solid #e5e5e5;
-  background:#fafafa;
-  padding:20px;
-  min-height:285px;
-  display:flex;
-  flex-direction:column;
-}
-.qual-paper{
-  flex:1;
-  min-height:170px;
-  display:grid;
-  place-items:center;
-  background:#fff;
-  border:1px solid #eee;
-  color:#bbb;
-  font-family:Georgia,serif;
-  font-size:15px;
-  letter-spacing:.06em;
-  margin-bottom:18px;
+
+/* 자격증 자동 가로 갤러리 */
+.qual-slider{
   position:relative;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
   overflow:hidden;
+  padding:12px 0 10px;
 }
-.qual-paper:before{
+.qual-slider:before,
+.qual-slider:after{
   content:"";
   position:absolute;
-  inset:14px;
-  border:1px solid #eee4c9;
+  top:0;
+  bottom:0;
+  width:95px;
+  z-index:5;
+  pointer-events:none;
 }
-.qual-paper span{position:relative;z-index:2;transition:opacity .2s ease}
+.qual-slider:before{
+  left:0;
+  background:linear-gradient(90deg,#fbfaf7 0%,rgba(251,250,247,0) 100%);
+}
+.qual-slider:after{
+  right:0;
+  background:linear-gradient(270deg,#fbfaf7 0%,rgba(251,250,247,0) 100%);
+}
+.qual-track{
+  display:flex;
+  width:max-content;
+  gap:18px;
+  padding-left:18px;
+  animation:qualFlow 58s linear infinite;
+  will-change:transform;
+}
+.qual-slider:hover .qual-track{
+  animation-play-state:paused;
+}
+@keyframes qualFlow{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-50% - 9px))}
+}
+.qual-card{
+  flex:0 0 258px;
+  width:258px;
+  background:#fff;
+  border:1px solid #e8e3d8;
+  padding:12px 12px 16px;
+  box-shadow:0 10px 28px rgba(0,0,0,.045);
+}
+.qual-paper{
+  height:338px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #eeeae1;
+  margin-bottom:14px;
+}
 .qual-paper img{
-  position:absolute;
-  inset:0;
+  display:block;
   width:100%;
   height:100%;
   object-fit:contain;
   background:#fff;
-  opacity:0;
-  z-index:3;
-  transition:opacity .2s ease;
 }
-.qual-paper.has-local-image img{opacity:1}
-.qual-paper.has-local-image span{opacity:0}
-.qual-paper.has-local-image:before{display:none}
 .qual-card small{
+  display:block;
   color:#b38a2d;
-  font-size:9px;
-  letter-spacing:.14em;
+  font-size:8px;
+  line-height:1.35;
+  letter-spacing:.12em;
+  min-height:22px;
 }
 .qual-card h3{
   font-size:14px;
-  margin:7px 0 6px;
+  line-height:1.45;
+  margin:5px 0 5px;
 }
 .qual-card p{
   margin:0;
-  color:#888;
-  font-size:10px;
-  line-height:1.6;
+  color:#8b8b8b;
+  font-size:9px;
+  line-height:1.55;
 }
-.qual-note{
+.qual-guide{
+  display:flex;
+  align-items:center;
+  gap:9px;
   margin-top:18px;
   color:#999;
-  font-size:10px;
-  line-height:1.7;
+  font-size:9px;
+  letter-spacing:.02em;
+}
+.qual-guide:before{
+  content:"";
+  width:34px;
+  height:1px;
+  background:#b38a2d;
 }
 @media(max-width:1000px){
   .qual-head{grid-template-columns:1fr;gap:20px}
-  .qual-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:680px){
-  .qualifications{padding:82px 0}
-  .qual-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .qual-card{padding:12px;min-height:235px}
-  .qual-paper{min-height:135px}
+  .qualifications{padding:80px 0 84px}
+  .qual-head{margin-bottom:28px}
   .qual-head h2{font-size:26px}
+  .qual-head p{font-size:11px}
+  .qual-slider:before,.qual-slider:after{width:28px}
+  .qual-track{gap:12px;padding-left:14px;animation-duration:48s}
+  @keyframes qualFlow{
+    from{transform:translateX(0)}
+    to{transform:translateX(calc(-50% - 6px))}
+  }
+  .qual-card{
+    flex-basis:204px;
+    width:204px;
+    padding:9px 9px 13px;
+  }
+  .qual-paper{height:270px;margin-bottom:12px}
+  .qual-card h3{font-size:12px}
+  .qual-card p{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .qual-track{animation:none}
+  .qual-slider{overflow-x:auto}
 }
 
 /* footer */
@@ -1772,60 +1820,216 @@ img{display:block;width:100%}
   <div class="wrap">
     <div class="qual-head">
       <div>
-        <small>LICENSE & CERTIFICATION</small>
+        <small>LICENSE &amp; CERTIFICATION</small>
         <h2>전문성을 증명하는 자격사항</h2>
       </div>
       <p>
-        금·보석·주얼리 상담과 감정에 관련된 자격 및 인증 내용을 한눈에 확인할 수 있는 영역입니다.
-        실제 보유 자격증 이미지와 자격명, 발급기관, 취득연도를 입력하면 전문성과 신뢰도를 더욱 효과적으로 전달할 수 있습니다.
+        국가기술자격 보석감정사와 주얼리·귀금속·다이아몬드·시계 등
+        다양한 전문 평가 및 감정 관련 자격을 바탕으로 신뢰도 높은 상담을 제공합니다.
       </p>
     </div>
+  </div>
 
-    <div class="qual-grid">
-      <article class="qual-card">
-        <div class="qual-paper">
-          <span>CERTIFICATE 01</span>
-          <img src="" data-local="images/certificate-01.jpg" alt="자격사항 01">
-        </div>
-        <small>QUALIFICATION 01</small>
-        <h3>자격사항명 입력</h3>
-        <p>발급기관 / 취득연도 입력</p>
-      </article>
+  <div class="qual-slider" aria-label="자격증 갤러리">
+    <div class="qual-track">
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증">
+          </div>
+          <small>국가기술자격증</small>
+          <h3>보석감정사</h3>
+          <p>한국산업인력공단</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증">
+          </div>
+          <small>REGISTERED MASTER VALUER</small>
+          <h3>Master Valuer</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증">
+          </div>
+          <small>PRECIOUS METAL APPRAISER</small>
+          <h3>귀금속 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증">
+          </div>
+          <small>DIAMOND APPRAISER</small>
+          <h3>다이아몬드 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증">
+          </div>
+          <small>WATCH APPRAISER</small>
+          <h3>명품시계 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증">
+          </div>
+          <small>ANTIQUE JEWELRY APPRAISER</small>
+          <h3>앤티크 주얼리 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증">
+          </div>
+          <small>COLORED STONE APPRAISER</small>
+          <h3>유색보석 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증">
+          </div>
+          <small>JEWELRY BUSINESS MANAGER</small>
+          <h3>주얼리 비즈니스 매니저</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증">
+          </div>
+          <small>JEWELRY COORDINATOR</small>
+          <h3>주얼리 코디네이터 & 디스플레이어</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증">
+          </div>
+          <small>PEARL APPRAISER</small>
+          <h3>진주 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증">
+          </div>
+          <small>JEWELRY DEALER</small>
+          <h3>주얼리 딜러 자격증</h3>
+          <p>Korea Gemological Institute</p>
+        </article>
+        <article class="qual-card">
+          <div class="qual-paper">
+            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증">
+          </div>
+          <small>MV KOREA</small>
+          <h3>한국주얼리평가협회 정회원</h3>
+          <p>한국주얼리평가협회</p>
+        </article>
 
-      <article class="qual-card">
-        <div class="qual-paper">
-          <span>CERTIFICATE 02</span>
-          <img src="" data-local="images/certificate-02.jpg" alt="자격사항 02">
-        </div>
-        <small>QUALIFICATION 02</small>
-        <h3>자격사항명 입력</h3>
-        <p>발급기관 / 취득연도 입력</p>
-      </article>
-
-      <article class="qual-card">
-        <div class="qual-paper">
-          <span>CERTIFICATE 03</span>
-          <img src="" data-local="images/certificate-03.jpg" alt="자격사항 03">
-        </div>
-        <small>QUALIFICATION 03</small>
-        <h3>자격사항명 입력</h3>
-        <p>발급기관 / 취득연도 입력</p>
-      </article>
-
-      <article class="qual-card">
-        <div class="qual-paper">
-          <span>CERTIFICATE 04</span>
-          <img src="" data-local="images/certificate-04.jpg" alt="자격사항 04">
-        </div>
-        <small>QUALIFICATION 04</small>
-        <h3>자격사항명 입력</h3>
-        <p>발급기관 / 취득연도 입력</p>
-      </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증">
+          </div>
+          <small>국가기술자격증</small>
+          <h3>보석감정사</h3>
+          <p>한국산업인력공단</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증">
+          </div>
+          <small>REGISTERED MASTER VALUER</small>
+          <h3>Master Valuer</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증">
+          </div>
+          <small>PRECIOUS METAL APPRAISER</small>
+          <h3>귀금속 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증">
+          </div>
+          <small>DIAMOND APPRAISER</small>
+          <h3>다이아몬드 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증">
+          </div>
+          <small>WATCH APPRAISER</small>
+          <h3>명품시계 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증">
+          </div>
+          <small>ANTIQUE JEWELRY APPRAISER</small>
+          <h3>앤티크 주얼리 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증">
+          </div>
+          <small>COLORED STONE APPRAISER</small>
+          <h3>유색보석 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증">
+          </div>
+          <small>JEWELRY BUSINESS MANAGER</small>
+          <h3>주얼리 비즈니스 매니저</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증">
+          </div>
+          <small>JEWELRY COORDINATOR</small>
+          <h3>주얼리 코디네이터 & 디스플레이어</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증">
+          </div>
+          <small>PEARL APPRAISER</small>
+          <h3>진주 평가사</h3>
+          <p>Master Valuer International</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증">
+          </div>
+          <small>JEWELRY DEALER</small>
+          <h3>주얼리 딜러 자격증</h3>
+          <p>Korea Gemological Institute</p>
+        </article>
+        <article class="qual-card" aria-hidden="true">
+          <div class="qual-paper">
+            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증">
+          </div>
+          <small>MV KOREA</small>
+          <h3>한국주얼리평가협회 정회원</h3>
+          <p>한국주얼리평가협회</p>
+        </article>
     </div>
+  </div>
 
-    <div class="qual-note">
-      ※ 위 자격사항은 디자인용 입력란입니다. 실제 보유 자격증명·발급기관·취득연도 및 자격증 이미지를 넣어 사용하세요.
-    </div>
+  <div class="wrap">
+    <div class="qual-guide">자격증 갤러리가 자동으로 가로 이동합니다. 마우스를 올리면 잠시 멈춥니다.</div>
   </div>
 </section>
 
