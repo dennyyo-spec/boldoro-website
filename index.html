@@ -290,15 +290,16 @@ img{display:block;width:100%}
     order:2;
   }
 
-  /* 모바일: 사진 아래 회색 빈공간 제거 */
+  /* 모바일: 모든 컬렉션 사진 크기 통일 + 빈공간 제거 */
   .collection-visual{
     min-height:0;
     height:auto;
+    aspect-ratio:3 / 2;
     background:transparent;
   }
   .collection-visual img{
     width:100%;
-    height:auto;
+    height:100%;
     object-fit:cover;
   }
 
