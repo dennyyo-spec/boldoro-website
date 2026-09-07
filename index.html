@@ -290,7 +290,18 @@ img{display:block;width:100%}
     order:2;
   }
 
-  .collection-visual{min-height:300px}
+  /* 모바일: 사진 아래 회색 빈공간 제거 */
+  .collection-visual{
+    min-height:0;
+    height:auto;
+    background:transparent;
+  }
+  .collection-visual img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+  }
+
   .collection-copy{padding:28px 22px}
   .collection-copy h3{font-size:30px}
   .collection-copy .mini-list{grid-template-columns:1fr}
