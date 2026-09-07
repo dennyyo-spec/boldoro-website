@@ -441,6 +441,99 @@ img{display:block;width:100%}
   margin-left:calc(50% - 50vw);
   overflow:hidden;
   padding:12px 0 10px;
+  cursor:grab;
+  touch-action:pan-y;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.qual-slider.is-dragging{
+  cursor:grabbing;
+}
+.qual-slider.is-dragging .qual-track{
+  animation-play-state:paused;
+}
+.qual-card{
+  cursor:pointer;
+}
+
+/* 자격증 확대 보기 */
+.qual-modal{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.82);
+}
+.qual-modal.is-open{
+  display:flex;
+}
+.qual-modal-inner{
+  position:relative;
+  width:min(920px,94vw);
+  max-height:92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.qual-modal-img{
+  display:block;
+  max-width:100%;
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  background:#fff;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+.qual-modal-close{
+  position:absolute;
+  top:-18px;
+  right:-18px;
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 5px 18px rgba(0,0,0,.22);
+}
+.qual-modal-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-34px;
+  text-align:center;
+  color:#fff;
+  font-size:12px;
+}
+@media(max-width:680px){
+  .qual-modal{
+    padding:16px;
+  }
+  .qual-modal-inner{
+    width:96vw;
+    max-height:88vh;
+  }
+  .qual-modal-img{
+    max-height:82vh;
+  }
+  .qual-modal-close{
+    top:-10px;
+    right:-4px;
+    width:42px;
+    height:42px;
+    font-size:25px;
+  }
+  .qual-modal-caption{
+    bottom:-28px;
+    font-size:11px;
+  }
 }
 .qual-slider:before,
 .qual-slider:after{
@@ -1834,7 +1927,7 @@ img{display:block;width:100%}
     <div class="qual-track">
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증">
+            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증" draggable="false">
           </div>
           <small>국가기술자격증</small>
           <h3>보석감정사</h3>
@@ -1842,7 +1935,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증">
+            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증" draggable="false">
           </div>
           <small>REGISTERED MASTER VALUER</small>
           <h3>Master Valuer</h3>
@@ -1850,7 +1943,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증">
+            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증" draggable="false">
           </div>
           <small>PRECIOUS METAL APPRAISER</small>
           <h3>귀금속 평가사</h3>
@@ -1858,7 +1951,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증">
+            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증" draggable="false">
           </div>
           <small>DIAMOND APPRAISER</small>
           <h3>다이아몬드 평가사</h3>
@@ -1866,7 +1959,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증">
+            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증" draggable="false">
           </div>
           <small>WATCH APPRAISER</small>
           <h3>명품시계 평가사</h3>
@@ -1874,7 +1967,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증">
+            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증" draggable="false">
           </div>
           <small>ANTIQUE JEWELRY APPRAISER</small>
           <h3>앤티크 주얼리 평가사</h3>
@@ -1882,7 +1975,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증">
+            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증" draggable="false">
           </div>
           <small>COLORED STONE APPRAISER</small>
           <h3>유색보석 평가사</h3>
@@ -1890,7 +1983,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증">
+            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증" draggable="false">
           </div>
           <small>JEWELRY BUSINESS MANAGER</small>
           <h3>주얼리 비즈니스 매니저</h3>
@@ -1898,7 +1991,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증">
+            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증" draggable="false">
           </div>
           <small>JEWELRY COORDINATOR</small>
           <h3>주얼리 코디네이터 & 디스플레이어</h3>
@@ -1906,7 +1999,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증">
+            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증" draggable="false">
           </div>
           <small>PEARL APPRAISER</small>
           <h3>진주 평가사</h3>
@@ -1914,7 +2007,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증">
+            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증" draggable="false">
           </div>
           <small>JEWELRY DEALER</small>
           <h3>주얼리 딜러 자격증</h3>
@@ -1922,7 +2015,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card">
           <div class="qual-paper">
-            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증">
+            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증" draggable="false">
           </div>
           <small>MV KOREA</small>
           <h3>한국주얼리평가협회 정회원</h3>
@@ -1931,7 +2024,7 @@ img{display:block;width:100%}
 
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증">
+            <img src="images/certificates/national-gem-appraiser.jpg" alt="보석감정사 자격증" draggable="false">
           </div>
           <small>국가기술자격증</small>
           <h3>보석감정사</h3>
@@ -1939,7 +2032,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증">
+            <img src="images/certificates/master-valuer.jpg" alt="Master Valuer 자격증" draggable="false">
           </div>
           <small>REGISTERED MASTER VALUER</small>
           <h3>Master Valuer</h3>
@@ -1947,7 +2040,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증">
+            <img src="images/certificates/precious-metal-appraiser.jpg" alt="귀금속 평가사 자격증" draggable="false">
           </div>
           <small>PRECIOUS METAL APPRAISER</small>
           <h3>귀금속 평가사</h3>
@@ -1955,7 +2048,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증">
+            <img src="images/certificates/diamond-appraiser.jpg" alt="다이아몬드 평가사 자격증" draggable="false">
           </div>
           <small>DIAMOND APPRAISER</small>
           <h3>다이아몬드 평가사</h3>
@@ -1963,7 +2056,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증">
+            <img src="images/certificates/watch-appraiser.jpg" alt="명품시계 평가사 자격증" draggable="false">
           </div>
           <small>WATCH APPRAISER</small>
           <h3>명품시계 평가사</h3>
@@ -1971,7 +2064,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증">
+            <img src="images/certificates/antique-jewelry-appraiser.jpg" alt="앤티크 주얼리 평가사 자격증" draggable="false">
           </div>
           <small>ANTIQUE JEWELRY APPRAISER</small>
           <h3>앤티크 주얼리 평가사</h3>
@@ -1979,7 +2072,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증">
+            <img src="images/certificates/colored-stone-appraiser.jpg" alt="유색보석 평가사 자격증" draggable="false">
           </div>
           <small>COLORED STONE APPRAISER</small>
           <h3>유색보석 평가사</h3>
@@ -1987,7 +2080,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증">
+            <img src="images/certificates/jewelry-business-manager.jpg" alt="주얼리 비즈니스 매니저 자격증" draggable="false">
           </div>
           <small>JEWELRY BUSINESS MANAGER</small>
           <h3>주얼리 비즈니스 매니저</h3>
@@ -1995,7 +2088,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증">
+            <img src="images/certificates/jewelry-coordinator.jpg" alt="주얼리 코디네이터 & 디스플레이어 자격증" draggable="false">
           </div>
           <small>JEWELRY COORDINATOR</small>
           <h3>주얼리 코디네이터 & 디스플레이어</h3>
@@ -2003,7 +2096,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증">
+            <img src="images/certificates/pearl-appraiser.jpg" alt="진주 평가사 자격증" draggable="false">
           </div>
           <small>PEARL APPRAISER</small>
           <h3>진주 평가사</h3>
@@ -2011,7 +2104,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증">
+            <img src="images/certificates/jewelry-dealer.jpg" alt="주얼리 딜러 자격증 자격증" draggable="false">
           </div>
           <small>JEWELRY DEALER</small>
           <h3>주얼리 딜러 자격증</h3>
@@ -2019,7 +2112,7 @@ img{display:block;width:100%}
         </article>
         <article class="qual-card" aria-hidden="true">
           <div class="qual-paper">
-            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증">
+            <img src="images/certificates/mv-korea-membership.jpg" alt="한국주얼리평가협회 정회원 자격증" draggable="false">
           </div>
           <small>MV KOREA</small>
           <h3>한국주얼리평가협회 정회원</h3>
@@ -2029,7 +2122,15 @@ img{display:block;width:100%}
   </div>
 
   <div class="wrap">
-    <div class="qual-guide">자격증 갤러리가 자동으로 가로 이동합니다. 마우스를 올리면 잠시 멈춥니다.</div>
+    <div class="qual-guide">마우스 또는 손가락으로 좌우 드래그할 수 있으며, 자격증을 클릭하면 크게 볼 수 있습니다.</div>
+  </div>
+
+  <div class="qual-modal" id="qualModal" aria-hidden="true">
+    <div class="qual-modal-inner" role="dialog" aria-modal="true" aria-label="자격증 확대 보기">
+      <button class="qual-modal-close" type="button" aria-label="닫기">×</button>
+      <img class="qual-modal-img" src="" alt="">
+      <div class="qual-modal-caption"></div>
+    </div>
   </div>
 </section>
 
@@ -2102,5 +2203,131 @@ document.querySelectorAll(".chart-tabs button").forEach(b=>b.onclick=()=>{docume
 </script>
 
 <script src="assets/image-loader.js"></script>
+
+<script>
+(function(){
+  const slider = document.querySelector('.qual-slider');
+  const track = document.querySelector('.qual-track');
+  const modal = document.getElementById('qualModal');
+  if(!slider || !track || !modal) return;
+
+  let isDown = false;
+  let startX = 0;
+  let startTranslate = 0;
+  let currentTranslate = 0;
+  let dragged = false;
+  let raf = null;
+
+  function getTranslateX(){
+    const style = window.getComputedStyle(track);
+    const matrix = new DOMMatrixReadOnly(style.transform);
+    return matrix.m41 || 0;
+  }
+
+  function setTranslate(x){
+    currentTranslate = x;
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${x}px)`;
+  }
+
+  function normalizePosition(){
+    const half = track.scrollWidth / 2;
+    if(!half) return;
+    while(currentTranslate <= -half) currentTranslate += half;
+    while(currentTranslate > 0) currentTranslate -= half;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  function pointerDown(e){
+    if(e.button !== undefined && e.button !== 0) return;
+    isDown = true;
+    dragged = false;
+    slider.classList.add('is-dragging');
+    startX = e.clientX;
+    startTranslate = getTranslateX();
+    currentTranslate = startTranslate;
+    track.style.animationPlayState = 'paused';
+    try{ slider.setPointerCapture(e.pointerId); }catch(err){}
+  }
+
+  function pointerMove(e){
+    if(!isDown) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 5) dragged = true;
+    if(raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(()=>{
+      setTranslate(startTranslate + dx);
+      normalizePosition();
+    });
+  }
+
+  function pointerUp(e){
+    if(!isDown) return;
+    isDown = false;
+    slider.classList.remove('is-dragging');
+    try{ slider.releasePointerCapture(e.pointerId); }catch(err){}
+    normalizePosition();
+  }
+
+  slider.addEventListener('pointerdown', pointerDown);
+  slider.addEventListener('pointermove', pointerMove);
+  slider.addEventListener('pointerup', pointerUp);
+  slider.addEventListener('pointercancel', pointerUp);
+
+  const modalImg = modal.querySelector('.qual-modal-img');
+  const modalCaption = modal.querySelector('.qual-modal-caption');
+  const closeBtn = modal.querySelector('.qual-modal-close');
+
+  function openModal(img, card){
+    modalImg.src = img.src;
+    modalImg.alt = img.alt || '자격증 확대 이미지';
+    const title = card.querySelector('h3');
+    modalCaption.textContent = title ? title.textContent.trim() : '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    modalImg.src = '';
+  }
+
+  slider.querySelectorAll('.qual-card').forEach(card=>{
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.setAttribute('aria-label','자격증 확대 보기');
+
+    card.addEventListener('click', ()=>{
+      if(dragged){
+        dragged = false;
+        return;
+      }
+      const img = card.querySelector('img');
+      if(img) openModal(img, card);
+    });
+
+    card.addEventListener('keydown', e=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        const img = card.querySelector('img');
+        if(img) openModal(img, card);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e=>{
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>
+
 </body>
 </html>
