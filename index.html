@@ -2326,5 +2326,130 @@ document.querySelectorAll(".chart-tabs button").forEach(b=>b.onclick=()=>{docume
 })();
 </script>
 
+
+<!-- FontAwesome v4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- 전화 아이콘 -->
+<div class="phone-wrapper">
+  <a href="tel:010-3970-2418" class="phone-button" aria-label="전화 상담">
+    <i class="fa fa-phone"></i>
+  </a>
+</div>
+
+<!-- 카카오톡 아이콘 -->
+<div class="kakao-wrapper">
+  <a href="http://pf.kakao.com/_Qisen/chat" class="kakao-button" target="_blank" rel="noopener" aria-label="카카오톡 상담">
+    <i class="fa fa-commenting"></i>
+  </a>
+</div>
+
+<!-- 회전 상담 로고 -->
+<div class="counseling-logo">
+  <a title="BTB Counseling" href="/counseling">
+    <img src="https://cdn.imweb.me/upload/S20241007242d862f6e03e/8068fbd5ebba8.png"
+         class="infinite_rotating_logo"
+         alt="Counseling Icon">
+  </a>
+</div>
+
+<style>
+.phone-wrapper {
+  position: fixed !important;
+  bottom: 250px !important;
+  right: 65px !important;
+  z-index: 10002 !important;
+}
+.kakao-wrapper {
+  position: fixed !important;
+  bottom: 140px !important;
+  right: 65px !important;
+  z-index: 10001 !important;
+}
+.counseling-logo {
+  position: fixed !important;
+  bottom: 125px !important;
+  right: 50px !important;
+  z-index: 10000 !important;
+}
+.phone-button {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #03c75a !important;
+  color: #fff !important;
+  border: 2px solid #03ab4d;
+  font-size: 28px;
+  border-radius: 50%;
+  transition: all .3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.phone-button i { transition: transform .3s ease-in-out; }
+.phone-button:hover { background-color:#03ab4d !important; border-color:#03ab4d; }
+.phone-button:hover i { transform:scale(1.2); }
+
+.kakao-button {
+  width:75px;
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background-color:#e2c01a;
+  color:#fff !important;
+  border:2px solid #e2c01a;
+  font-size:26px;
+  border-radius:50%;
+  transition:all .3s ease-in-out;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.kakao-button i { transition:transform .3s ease-in-out; }
+.kakao-button:hover { background-color:#d1ac18; border-color:#d1ac18; }
+.kakao-button:hover i { transform:scale(1.2); }
+.kakao-button::before {
+  content:"";
+  background-color:rgba(255,255,255,.5);
+  height:100%;
+  width:4em;
+  display:block;
+  position:absolute;
+  top:0;
+  left:-100%;
+  transform:skewX(-45deg) translateX(0);
+  transition:none;
+}
+.kakao-button:hover::before {
+  transform:skewX(-45deg) translateX(200%);
+  transition:all .5s ease-in-out;
+}
+
+.infinite_rotating_logo {
+  width:105px;
+  height:105px;
+  display:block;
+  animation:rotate 20s linear infinite;
+}
+@keyframes rotate {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+@media (max-width:768px) {
+  .phone-wrapper { bottom:160px !important; right:18px !important; }
+  .phone-button { width:58px !important; height:58px !important; font-size:22px !important; }
+  .kakao-wrapper { bottom:80px !important; right:18px !important; }
+  .kakao-button { width:58px !important; height:58px !important; font-size:22px !important; }
+  .counseling-logo { bottom:69px !important; right:7px !important; }
+  .infinite_rotating_logo { width:80px !important; height:80px !important; }
+}
+</style>
+
 </body>
 </html>
