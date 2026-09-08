@@ -54,14 +54,58 @@ img{display:block;width:100%}
 .btn.gold{border-color:#b78d29;color:#e0b64e}
 
 /* ticker */
-.ticker{background:#0b0b0b;color:#fff;border-top:1px solid #222;border-bottom:1px solid #222}
-.ticker-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr) .9fr}
+.ticker{background:#0b0b0b;color:#fff;border-top:1px solid #222;border-bottom:1px solid #222;overflow:hidden}
+.ticker-grid{display:grid;grid-template-columns:1.08fr .92fr .92fr .92fr 1.7fr}
 .ticker > .wrap{width:min(var(--max),calc(100% - 48px))}
-.tick{padding:18px 20px;border-right:1px solid #202020}
+.tick{padding:18px 16px;border-right:1px solid #202020}
 .tick small{display:block;color:#999;font-size:10px;margin-bottom:5px}
 .tick strong{font-size:17px}
 .tick strong.up{color:#d7ae45}
-.tick-action{display:flex;align-items:center;justify-content:center}
+
+/* 24K / 18K / 14K 가격을 기존보다 조금 왼쪽으로 */
+.ticker-grid > .tick:nth-child(2),
+.ticker-grid > .tick:nth-child(3),
+.ticker-grid > .tick:nth-child(4){
+  padding-left:8px;
+}
+
+/* 우측 광고 흐르는 문구 */
+.tick-ad{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  min-width:0;
+  padding:0;
+  border-right:0;
+}
+.tick-ad-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  white-space:nowrap;
+  padding-left:100%;
+  animation:boldoroTickerAd 15s linear infinite;
+}
+.tick-ad-text{
+  display:inline-block;
+  padding-right:70px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:#fff;
+}
+.tick-ad-text strong{
+  color:#d7ae45;
+  font-size:inherit;
+}
+@keyframes boldoroTickerAd{
+  from{transform:translateX(0)}
+  to{transform:translateX(-100%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .tick-ad-track{animation:none;padding-left:18px}
+}
 
 
 /* brand intro before gold market */
@@ -678,8 +722,9 @@ img{display:block;width:100%}
   .nav{display:none}
   .header-inner{grid-template-columns:auto 1fr}
   .header-side{justify-self:end}
-  .ticker-grid{grid-template-columns:1.15fr repeat(3,1fr)}
-  .tick-action{display:none}
+  .ticker-grid{grid-template-columns:1.05fr repeat(3,1fr)}
+  .tick-ad{grid-column:1/-1;min-height:50px;border-top:1px solid #202020}
+  .tick-ad-track{animation-duration:14s}
   .market-grid,.trust-grid{grid-template-columns:1fr}
   .trust-box{border-right:0;padding-right:0}
   .product-grid{grid-template-columns:repeat(3,1fr)}
@@ -695,9 +740,21 @@ img{display:block;width:100%}
   .hero-copy{max-width:360px}
   .ticker-grid{grid-template-columns:repeat(3,1fr)}
   .tick:first-child{grid-column:1/-1}
+  .ticker-grid > .tick:nth-child(2),
+  .ticker-grid > .tick:nth-child(3),
+  .ticker-grid > .tick:nth-child(4){padding-left:5px}
   .tick{padding:15px 10px}
   .tick small{font-size:9px}
   .tick strong{font-size:14px}
+  .tick-ad{
+    grid-column:1/-1;
+    min-height:46px;
+    padding:0;
+    border-top:1px solid #202020;
+    border-right:0;
+  }
+  .tick-ad-text{font-size:12px;padding-right:50px}
+  .tick-ad-track{animation-duration:13s}
   .market{padding:72px 0 82px}
   .market-grid{gap:42px}
   .service-grid,.category-grid{grid-template-columns:1fr}
@@ -1058,7 +1115,13 @@ img{display:block;width:100%}
     <div class="tick"><small>24K 내가 팔 때</small><strong id="ticker24Buy" class="up">-</strong></div>
     <div class="tick"><small>18K 내가 팔 때</small><strong id="ticker18Buy">-</strong></div>
     <div class="tick"><small>14K 내가 팔 때</small><strong id="ticker14Buy">-</strong></div>
-    <div class="tick tick-action"><a class="btn" href="#market">자세히 보기 →</a></div>
+
+    <div class="tick tick-ad" aria-label="금매입 안내">
+      <div class="tick-ad-track">
+        <span class="tick-ad-text">중량, 순도, 종류에 상관없이 <strong>최고가 금매입</strong> 합니다</span>
+        <span class="tick-ad-text" aria-hidden="true">중량, 순도, 종류에 상관없이 <strong>최고가 금매입</strong> 합니다</span>
+      </div>
+    </div>
   </div>
 </section>
 
