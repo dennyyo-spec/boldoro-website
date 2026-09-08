@@ -1213,6 +1213,60 @@ img{display:block;width:100%}
 }
 </style>
 
+
+<style id="boldoro-footer-clean-layout">
+.footer{
+  padding:54px 0 26px !important;
+}
+.footer-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto !important;
+  align-items:center !important;
+  gap:60px !important;
+}
+.footer-grid > div:first-child{
+  min-width:0;
+}
+.footer-logo img{
+  width:190px !important;
+  margin-bottom:14px !important;
+}
+.contact-box{
+  width:260px !important;
+  box-sizing:border-box !important;
+}
+.footer-social-row{
+  margin-top:24px !important;
+}
+.copyright{
+  margin-top:28px !important;
+}
+
+@media(max-width:680px){
+  .footer{
+    padding:44px 0 24px !important;
+  }
+  .footer-grid{
+    grid-template-columns:1fr !important;
+    gap:26px !important;
+  }
+  .footer-grid > div:first-child{
+    text-align:center !important;
+  }
+  .footer-logo img{
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  .contact-box{
+    width:100% !important;
+    text-align:center !important;
+  }
+  .footer-social-row{
+    justify-content:center !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -4859,9 +4913,6 @@ img{display:block;width:100%}
         <div class="footer-logo"><img src="images/logo.png" alt="BOLDORO"></div>
         <p>부산광역시 부산진구 가야대로 772 1층(부전동)<br>Tel. 010-3970-2418</p>
       </div>
-      <div><h4>고객센터</h4><ul><li>공지사항</li><li>자주 묻는 질문</li><li>1:1 상담 문의</li><li>이용 안내</li></ul></div>
-      <div><h4>이용 안내</h4><ul><li>개인정보처리방침</li><li>이용약관</li><li>매입 절차 안내</li><li>배송 안내</li></ul></div>
-      <div><h4>서비스</h4><ul><li>골드바 구매</li><li>금매입 상담</li><li>주얼리 상담</li><li>다이아몬드 상담</li></ul></div>
       <div class="contact-box">
         <strong>상담 및 예약</strong>
         <div class="phone">☎ 010-3970-2418</div>
