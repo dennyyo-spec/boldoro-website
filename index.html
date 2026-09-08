@@ -399,6 +399,12 @@ img{display:block;width:100%}
 .boutique-grid img{height:180px;object-fit:cover}
 .store-btn{text-align:center;margin-top:16px}
 .store-btn a{display:inline-flex;padding:10px 24px;border:1px solid #ccc;font-size:11px}
+.boutique-more-grid{display:none;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:5px}
+.boutique-more-grid.is-open{display:grid}
+.boutique-more-grid img{width:100%;height:180px;object-fit:cover;display:block}
+.store-btn button{display:inline-flex;align-items:center;justify-content:center;padding:10px 28px;border:1px solid #c9a84e;background:#fff;color:#222;font:inherit;font-size:11px;cursor:pointer;transition:.25s ease}
+.store-btn button:hover{background:#111;color:#fff;border-color:#111}
+
 
 
 /* qualifications */
@@ -697,6 +703,9 @@ img{display:block;width:100%}
   .icon-grid{grid-template-columns:repeat(2,1fr);gap:25px}
   .boutique-grid{grid-template-columns:repeat(2,1fr)}
   .boutique-grid img{height:140px}
+  .boutique-more-grid{grid-template-columns:repeat(2,1fr)}
+  .boutique-more-grid img{height:140px}
+
 
   .services{padding:15px 0 72px}
   .categories{padding:10px 0 78px}
@@ -4589,7 +4598,24 @@ img{display:block;width:100%}
         <img src="images/boutique/boutique-front.jpg" alt="BOLDORO 매장 전면">
         <img src="images/boutique/boutique-interior.jpg" alt="BOLDORO 매장 내부">
       </div>
-      <div class="store-btn"><a href="#">매장 둘러보기 →</a></div>
+      <div class="boutique-more-grid" id="boutiqueMoreGrid" aria-hidden="true">
+        <img src="images/boutique/more/boutique-more-01.gif" alt="BOLDORO 브랜드 및 매장 이미지" loading="lazy">
+        <img src="images/boutique/more/boutique-more-02.jpg" alt="BOLDORO 골드바 안내" loading="lazy">
+        <img src="images/boutique/more/boutique-more-03.png" alt="BOLDORO 매장 로고" loading="lazy">
+        <img src="images/boutique/more/boutique-more-04.jpg" alt="BOLDORO 골드앤주얼리 로고" loading="lazy">
+        <img src="images/boutique/more/boutique-more-05.jpg" alt="BOLDORO 주얼리 진열" loading="lazy">
+        <img src="images/boutique/more/boutique-more-06.jpg" alt="BOLDORO 다이아몬드 주얼리" loading="lazy">
+        <img src="images/boutique/more/boutique-more-07.jpg" alt="BOLDORO 매장 쇼케이스" loading="lazy">
+        <img src="images/boutique/more/boutique-more-08.jpg" alt="BOLDORO 매장 내부" loading="lazy">
+        <img src="images/boutique/more/boutique-more-09.jpg" alt="BOLDORO 매장 안내판" loading="lazy">
+        <img src="images/boutique/more/boutique-more-10.jpg" alt="BOLDORO 매장 자격 및 진열" loading="lazy">
+        <img src="images/boutique/more/boutique-more-11.jpg" alt="BOLDORO 매장 내부 전경" loading="lazy">
+        <img src="images/boutique/more/boutique-more-12.jpg" alt="BOLDORO 주얼리 쇼케이스" loading="lazy">
+        <img src="images/boutique/more/boutique-more-13.jpg" alt="BOLDORO 매장 장식" loading="lazy">
+        <img src="images/boutique/more/boutique-more-14.jpg" alt="BOLDORO 돌반지" loading="lazy">
+        <img src="images/boutique/more/boutique-more-15.jpg" alt="BOLDORO 주얼리 패키지" loading="lazy">
+      </div>
+      <div class="store-btn"><button type="button" id="boutiqueMoreBtn" aria-expanded="false">더보기 +</button></div>
     </div>
   </div>
 </section>
@@ -4921,5 +4947,19 @@ img{display:block;width:100%}
 }
 </style>
 
+
+<script id="boldoro-boutique-more-script">
+(function(){
+  const btn=document.getElementById('boutiqueMoreBtn');
+  const grid=document.getElementById('boutiqueMoreGrid');
+  if(!btn||!grid) return;
+  btn.addEventListener('click',function(){
+    const open=grid.classList.toggle('is-open');
+    grid.setAttribute('aria-hidden', String(!open));
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent=open ? '접기 −' : '더보기 +';
+  });
+})();
+</script>
 </body>
 </html>
