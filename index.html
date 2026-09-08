@@ -1320,6 +1320,62 @@ img{display:block;width:100%}
 }
 </style>
 
+
+<style id="boldoro-footer-final-alignment">
+/* 푸터 좌측 로고와 우측 상담박스의 상단 라인을 동일하게 맞춤 */
+.footer-grid{
+  align-items:start !important;
+}
+.footer-grid > div:first-child{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  padding-top:0 !important;
+}
+.footer-grid > div:first-child .footer-logo{
+  margin:0 !important;
+}
+.footer-grid > div:first-child .footer-logo img{
+  display:block !important;
+  margin:0 !important;
+}
+
+/* SNS 아이콘을 로고 바로 아래로 이동 */
+.footer-social-row{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:15px !important;
+  margin:22px 0 0 0 !important;
+  height:auto !important;
+}
+.footer-social-row .sns-icon{
+  margin:0 !important;
+}
+
+.contact-box{
+  margin:0 !important;
+  align-self:start !important;
+}
+
+@media(max-width:680px){
+  .footer-grid > div:first-child{
+    align-items:center !important;
+  }
+  .footer-grid > div:first-child .footer-logo img{
+    margin:0 auto !important;
+  }
+  .footer-social-row{
+    justify-content:center !important;
+    margin-top:20px !important;
+  }
+  .contact-box{
+    width:100% !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
