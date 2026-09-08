@@ -1191,32 +1191,25 @@ img{display:block;width:100%}
 
 
 <style id="boldoro-header-logo-only">
-header .nav,
-header nav,
-header .phone,
-header .header-phone,
-header .menu-toggle,
-header .hamburger,
-header .mobile-menu-btn{
-  display:none !important;
-}
-
-header .header-inner,
-header .nav-wrap,
-header > .wrap{
-  position:relative !important;
+.header .header-inner{
+  width:100% !important;
+  max-width:none !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
   display:flex !important;
-  justify-content:center !important;
   align-items:center !important;
+  justify-content:center !important;
 }
-
-header .logo,
-header .brand{
-  position:relative !important;
-  left:auto !important;
-  right:auto !important;
-  margin-left:auto !important;
-  margin-right:auto !important;
+.header .logo{
+  display:block !important;
+  margin:0 auto !important;
+  position:static !important;
+  transform:none !important;
+}
+.header .logo img{
+  display:block !important;
+  margin:0 auto !important;
 }
 </style>
 
@@ -1226,20 +1219,6 @@ header .brand{
 <header class="header">
   <div class="header-inner">
     <a class="logo" href="#"><img src="images/logo.png" alt="BOLDORO"></a>
-    <nav class="nav">
-      <a href="#about">BOLDORO 소개</a>
-      <a href="#goldbar">골드바 구매</a>
-      <a href="#buying">금매입</a>
-      <a href="#jewelry">주얼리</a>
-      <a href="#diamond">다이아몬드</a>
-      <a href="#qualifications">자격사항</a>
-      <a href="#store">매장안내</a>
-      <a href="#contact">고객센터</a>
-    </nav>
-    <div class="header-side">
-      <span class="phone-text">☎ 010-3970-2418</span>
-      <span class="menu-icon">☰</span>
-    </div>
   </div>
 </header>
 
