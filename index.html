@@ -55,7 +55,7 @@ img{display:block;width:100%}
 
 /* ticker */
 .ticker{background:#0b0b0b;color:#fff;border-top:1px solid #222;border-bottom:1px solid #222}
-.ticker-grid{display:grid;grid-template-columns:1.2fr repeat(4,1fr) .9fr}
+.ticker-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr) .9fr}
 .ticker > .wrap{width:min(var(--max),calc(100% - 48px))}
 .tick{padding:18px 20px;border-right:1px solid #202020}
 .tick small{display:block;color:#999;font-size:10px;margin-bottom:5px}
@@ -678,8 +678,8 @@ img{display:block;width:100%}
   .nav{display:none}
   .header-inner{grid-template-columns:auto 1fr}
   .header-side{justify-self:end}
-  .ticker-grid{grid-template-columns:1.2fr repeat(2,1fr)}
-  .tick:nth-child(n+4){display:none}
+  .ticker-grid{grid-template-columns:1.15fr repeat(3,1fr)}
+  .tick-action{display:none}
   .market-grid,.trust-grid{grid-template-columns:1fr}
   .trust-box{border-right:0;padding-right:0}
   .product-grid{grid-template-columns:repeat(3,1fr)}
@@ -693,8 +693,11 @@ img{display:block;width:100%}
   .hero{min-height:560px;background-position:62% center}
   .hero h1{font-size:37px}
   .hero-copy{max-width:360px}
-  .ticker-grid{grid-template-columns:1fr 1fr}
+  .ticker-grid{grid-template-columns:repeat(3,1fr)}
   .tick:first-child{grid-column:1/-1}
+  .tick{padding:15px 10px}
+  .tick small{font-size:9px}
+  .tick strong{font-size:14px}
   .market{padding:72px 0 82px}
   .market-grid{gap:42px}
   .service-grid,.category-grid{grid-template-columns:1fr}
@@ -1051,11 +1054,10 @@ img{display:block;width:100%}
 
 <section class="ticker">
   <div class="wrap ticker-grid">
-    <div class="tick"><small>실시간 금시세</small><strong>오늘의 기준가</strong></div>
-    <div class="tick"><small>국제 금시세</small><strong class="up">3,226.58</strong></div>
-    <div class="tick"><small>국내 금시세</small><strong>147,350원</strong></div>
-    <div class="tick"><small>18K 매입시세</small><strong>108,500원</strong></div>
-    <div class="tick"><small>14K 매입시세</small><strong>84,300원</strong></div>
+    <div class="tick ticker-title"><small>실시간 금시세</small><strong>오늘의 매입가</strong></div>
+    <div class="tick"><small>24K 내가 살 때</small><strong id="ticker24Buy" class="up">-</strong></div>
+    <div class="tick"><small>18K 내가 살 때</small><strong id="ticker18Buy">-</strong></div>
+    <div class="tick"><small>14K 내가 살 때</small><strong id="ticker14Buy">-</strong></div>
     <div class="tick tick-action"><a class="btn" href="#market">자세히 보기 →</a></div>
   </div>
 </section>
@@ -1949,6 +1951,34 @@ img{display:block;width:100%}
                 formatBuyPrice(
                     data.today
                         ?.gold24
+                        ?.customerBuy
+                )
+            );
+
+            /* 상단 오늘의 매입가 - 하단 '내가 살 때'와 동일한 데이터 */
+            setText(
+                "ticker24Buy",
+                formatBuyPrice(
+                    data.today
+                        ?.gold24
+                        ?.customerBuy
+                )
+            );
+
+            setText(
+                "ticker18Buy",
+                formatBuyPrice(
+                    data.today
+                        ?.gold18
+                        ?.customerBuy
+                )
+            );
+
+            setText(
+                "ticker14Buy",
+                formatBuyPrice(
+                    data.today
+                        ?.gold14
                         ?.customerBuy
                 )
             );
