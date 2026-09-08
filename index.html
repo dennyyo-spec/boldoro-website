@@ -738,14 +738,67 @@ img{display:block;width:100%}
   .hero{min-height:560px;background-position:62% center}
   .hero h1{font-size:37px}
   .hero-copy{max-width:360px}
-  .ticker-grid{grid-template-columns:repeat(3,1fr)}
-  .tick:first-child{grid-column:1/-1}
+
+  /* 모바일 오늘의 매입가 중앙 정렬 */
+  .ticker > .wrap{
+    width:100%;
+  }
+
+  .ticker-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .ticker-title{
+    grid-column:1/-1;
+    text-align:center;
+    padding:14px 10px 12px;
+    border-right:0;
+    border-bottom:1px solid #202020;
+  }
+
+  .ticker-title small{
+    font-size:11px;
+    margin-bottom:4px;
+  }
+
+  .ticker-title strong{
+    font-size:19px;
+    letter-spacing:-.4px;
+  }
+
   .ticker-grid > .tick:nth-child(2),
   .ticker-grid > .tick:nth-child(3),
-  .ticker-grid > .tick:nth-child(4){padding-left:5px}
-  .tick{padding:15px 10px}
-  .tick small{font-size:9px}
-  .tick strong{font-size:14px}
+  .ticker-grid > .tick:nth-child(4){
+    padding:15px 4px 16px;
+    text-align:center;
+    min-width:0;
+  }
+
+  .ticker-grid > .tick:nth-child(4){
+    border-right:0;
+  }
+
+  .ticker-grid > .tick:nth-child(2) small,
+  .ticker-grid > .tick:nth-child(3) small,
+  .ticker-grid > .tick:nth-child(4) small{
+    font-size:10px;
+    line-height:1.25;
+    margin-bottom:7px;
+    white-space:nowrap;
+  }
+
+  .ticker-grid > .tick:nth-child(2) strong,
+  .ticker-grid > .tick:nth-child(3) strong,
+  .ticker-grid > .tick:nth-child(4) strong{
+    display:block;
+    width:100%;
+    font-size:17px;
+    line-height:1.15;
+    letter-spacing:-.6px;
+    white-space:nowrap;
+    text-align:center;
+    font-variant-numeric:tabular-nums;
+  }
   .tick-ad{
     grid-column:1/-1;
     min-height:46px;
