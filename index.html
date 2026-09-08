@@ -1377,71 +1377,74 @@ img{display:block;width:100%}
 </style>
 
 
-<style id="boldoro-footer-logo-sns-tight-layout">
-.footer-grid{
-  align-items:start !important;
+<style id="boldoro-footer-visual-match">
+.footer{
+  padding:64px 0 28px !important;
 }
-
-.footer-grid > div:first-child{
+.footer-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 260px !important;
+  align-items:start !important;
+  gap:70px !important;
+}
+.footer-left{
   display:flex !important;
   flex-direction:column !important;
   align-items:flex-start !important;
-  justify-content:flex-start !important;
 }
-
-.footer-grid > div:first-child .footer-logo{
+.footer-left .footer-logo{
   margin:0 !important;
-  padding:0 !important;
 }
-
-.footer-grid > div:first-child .footer-logo img{
-  display:block !important;
+.footer-left .footer-logo img{
   width:190px !important;
-  height:auto !important;
+  display:block !important;
   margin:0 !important;
 }
-
-/* SNS 아이콘을 로고 바로 아래로 */
-.footer-social-row{
+.footer-left .footer-social-row{
   display:flex !important;
   align-items:center !important;
   justify-content:flex-start !important;
-  gap:14px !important;
-  margin:14px 0 0 2px !important;
-  padding:0 !important;
+  gap:15px !important;
+  margin:24px 0 0 0 !important;
   height:auto !important;
 }
-
-.footer-social-row .sns-icon{
+.footer-left .footer-social-row .sns-icon{
   flex:0 0 26px !important;
   width:26px !important;
   height:26px !important;
   margin:0 !important;
-  padding:0 !important;
 }
-
 .contact-box{
+  width:260px !important;
   margin:0 !important;
   align-self:start !important;
 }
+.copyright{
+  margin-top:34px !important;
+}
 
 @media(max-width:680px){
-  .footer-grid > div:first-child{
+  .footer{
+    padding:44px 0 24px !important;
+  }
+  .footer-grid{
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+  .footer-left{
     align-items:center !important;
   }
-
-  .footer-grid > div:first-child .footer-logo img{
+  .footer-left .footer-logo img{
     margin:0 auto !important;
   }
-
-  .footer-social-row{
+  .footer-left .footer-social-row{
     justify-content:center !important;
-    gap:16px !important;
-    margin:14px 0 0 !important;
+    gap:18px !important;
+    margin-top:20px !important;
   }
-
   .contact-box{
     width:100% !important;
+    text-align:center !important;
   }
 }
 </style>
@@ -5088,9 +5091,25 @@ img{display:block;width:100%}
 <footer class="footer" id="contact">
   <div class="wrap">
     <div class="footer-grid">
-      <div>
+      <div class="footer-left">
         <div class="footer-logo"><img src="images/logo.png" alt="BOLDORO"></div>
+
+        <div class="footer-social-row" aria-label="BOLDORO SNS">
+          <a class="sns-icon sns-instagram" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="sns-icon sns-blog" href="https://search.naver.com/search.naver?where=blog&amp;query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC" target="_blank" rel="noopener" aria-label="Naver Blog">
+            <span class="blog-bubble"><b>blog</b></span>
+          </a>
+          <a class="sns-icon sns-naver" href="https://search.naver.com/search.naver?query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC%20%EA%B8%88%EA%B1%B0%EB%9E%98%EC%86%8C" target="_blank" rel="noopener" aria-label="Naver">
+            <span class="naver-box">N</span>
+          </a>
+          <a class="sns-icon sns-kakao" href="http://pf.kakao.com/_Qisen/chat" target="_blank" rel="noopener" aria-label="KakaoTalk">
+            <span class="kakao-bubble"><i class="fa fa-commenting"></i></span>
+          </a>
+        </div>
       </div>
+
       <div class="contact-box">
         <strong>상담 및 예약</strong>
         <div class="phone">☎ 010-3970-2418</div>
@@ -5098,20 +5117,6 @@ img{display:block;width:100%}
       </div>
     </div>
 
-    <div class="footer-social-row" aria-label="BOLDORO SNS">
-      <a class="sns-icon sns-instagram" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="fa fa-instagram"></i>
-      </a>
-      <a class="sns-icon sns-blog" href="https://search.naver.com/search.naver?where=blog&amp;query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC" target="_blank" rel="noopener" aria-label="Naver Blog">
-        <span class="blog-bubble"><b>blog</b></span>
-      </a>
-      <a class="sns-icon sns-naver" href="https://search.naver.com/search.naver?query=%EB%B3%BC%EB%8F%84%EB%A5%B4%20%EC%A3%BC%EC%96%BC%EB%A6%AC%20%EA%B8%88%EA%B1%B0%EB%9E%98%EC%86%8C" target="_blank" rel="noopener" aria-label="Naver">
-        <span class="naver-box">N</span>
-      </a>
-      <a class="sns-icon sns-kakao" href="http://pf.kakao.com/_Qisen/chat" target="_blank" rel="noopener" aria-label="KakaoTalk">
-        <span class="kakao-bubble"><i class="fa fa-commenting"></i></span>
-      </a>
-    </div>
     <div class="copyright">© 2026 BOLDORO. All Rights Reserved.</div>
   </div>
 </footer>
