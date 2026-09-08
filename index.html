@@ -1055,9 +1055,9 @@ img{display:block;width:100%}
 <section class="ticker">
   <div class="wrap ticker-grid">
     <div class="tick ticker-title"><small>실시간 금시세</small><strong>오늘의 매입가</strong></div>
-    <div class="tick"><small>24K 내가 살 때</small><strong id="ticker24Buy" class="up">-</strong></div>
-    <div class="tick"><small>18K 내가 살 때</small><strong id="ticker18Buy">-</strong></div>
-    <div class="tick"><small>14K 내가 살 때</small><strong id="ticker14Buy">-</strong></div>
+    <div class="tick"><small>24K 내가 팔 때</small><strong id="ticker24Buy" class="up">-</strong></div>
+    <div class="tick"><small>18K 내가 팔 때</small><strong id="ticker18Buy">-</strong></div>
+    <div class="tick"><small>14K 내가 팔 때</small><strong id="ticker14Buy">-</strong></div>
     <div class="tick tick-action"><a class="btn" href="#market">자세히 보기 →</a></div>
   </div>
 </section>
@@ -1955,31 +1955,31 @@ img{display:block;width:100%}
                 )
             );
 
-            /* 상단 오늘의 매입가 - 하단 '내가 살 때'와 동일한 데이터 */
+            /* 상단 오늘의 매입가 - 하단 '내가 팔 때'와 동일한 데이터 */
             setText(
                 "ticker24Buy",
-                formatBuyPrice(
+                formatGoldSellPrice(
                     data.today
                         ?.gold24
-                        ?.customerBuy
+                        ?.customerSell
                 )
             );
 
             setText(
                 "ticker18Buy",
-                formatBuyPrice(
+                formatGoldSellPrice(
                     data.today
                         ?.gold18
-                        ?.customerBuy
+                        ?.customerSell
                 )
             );
 
             setText(
                 "ticker14Buy",
-                formatBuyPrice(
+                formatGoldSellPrice(
                     data.today
                         ?.gold14
-                        ?.customerBuy
+                        ?.customerSell
                 )
             );
 
@@ -2731,7 +2731,7 @@ img{display:block;width:100%}
                     myPrice.today.gold24.customerBuy
                 );
 
-            /* 표와 동일 기준: 24K 내가 살 때는 1,000원 낮게 */
+            /* 표와 동일 기준: 24K 내가 팔 때는 1,000원 낮게 */
             var myCurrent =
                 myCurrentRaw > 0
                     ? Math.max(0, myCurrentRaw - 1000)
