@@ -1712,6 +1712,70 @@ img{display:block;width:100%}
 })();
 </script>
 
+
+<style id="boldoro-mobile-footer-gap-phone-final">
+/* 모바일: CONTACT 아래 숨김 키워드 영역이 차지하던 빈 공간 제거 */
+@media (max-width: 900px){
+  .keyword-area{
+    display:block !important;
+    height:0 !important;
+    min-height:0 !important;
+    max-height:0 !important;
+    padding:0 !important;
+    margin:0 !important;
+    border:0 !important;
+    overflow:hidden !important;
+    line-height:0 !important;
+  }
+  .keyword-area h2,
+  .keyword-area > p,
+  .keyword-area .keyword-tags{
+    height:0 !important;
+    max-height:0 !important;
+    padding:0 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    line-height:0 !important;
+  }
+
+  /* CONTACT 섹션과 검정 푸터 사이 불필요한 하단 여백 최소화 */
+  .boldoro-contact-section{
+    padding-bottom:0 !important;
+  }
+}
+
+/* 푸터 전화번호 전체 클릭 가능 + 흰색 전화 아이콘 */
+.footer .contact-box .phone{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+}
+.footer-phone-link{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  color:#fff !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+.footer-phone-link i{
+  color:#fff !important;
+  font-size:.78em !important;
+  line-height:1 !important;
+}
+.footer-phone-link span{
+  color:#fff !important;
+}
+@media (max-width:680px){
+  .footer .contact-box .phone{
+    justify-content:center !important;
+  }
+  .footer-phone-link{
+    justify-content:center !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -5421,7 +5485,12 @@ img{display:block;width:100%}
 
       <div class="contact-box">
         <strong>상담 및 예약</strong>
-        <div class="phone">☎ 010-3970-2418</div>
+        <div class="phone">
+          <a class="footer-phone-link" href="tel:01039702418" aria-label="010-3970-2418 전화 연결">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <span>010-3970-2418</span>
+          </a>
+        </div>
         <p><strong class="business-hours-label">영업시간 :</strong> 월~토 10:00~19:00 (일·공휴일 예약제 운영)</p>
       </div>
     </div>
