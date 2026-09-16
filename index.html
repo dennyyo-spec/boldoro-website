@@ -5696,5 +5696,52 @@ function openBoldoroInstagram(event){
 }
 </script>
 
+
+<style id="boldoro-mobile-chart-scroll-fix">
+@media (max-width: 767px){
+  /* 국내 금시세 그래프 위에서도 손가락 세로 스크롤 허용 */
+  canvas,
+  .chart-container,
+  .chart-wrap,
+  .gold-chart,
+  .gold-chart-wrap,
+  .graph-container,
+  .graph-wrap,
+  #goldChart,
+  #gold-chart,
+  #priceChart,
+  #price-chart {
+    touch-action: pan-y !important;
+    -ms-touch-action: pan-y !important;
+  }
+}
+</style>
+<script id="boldoro-mobile-chart-scroll-js">
+(function(){
+  if(!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
+
+  function enableVerticalScroll(){
+    var selectors = [
+      'canvas',
+      '.chart-container', '.chart-wrap',
+      '.gold-chart', '.gold-chart-wrap',
+      '.graph-container', '.graph-wrap',
+      '#goldChart', '#gold-chart',
+      '#priceChart', '#price-chart'
+    ];
+    document.querySelectorAll(selectors.join(',')).forEach(function(el){
+      el.style.setProperty('touch-action','pan-y','important');
+      el.style.setProperty('-ms-touch-action','pan-y','important');
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', enableVerticalScroll);
+  } else {
+    enableVerticalScroll();
+  }
+})();
+</script>
+
 </body>
 </html>
