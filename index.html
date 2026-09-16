@@ -4478,7 +4478,9 @@ img{display:block;width:100%}
                         "transparent",
 
                     style:
-                        "cursor:crosshair;touch-action:none;"
+                        mobile
+                            ? "pointer-events:none;touch-action:pan-y;"
+                            : "cursor:crosshair;touch-action:none;"
                 }
             );
 
@@ -4797,34 +4799,26 @@ img{display:block;width:100%}
         );
 
 
-        overlay.addEventListener(
-            "touchstart",
-            pointerMove,
-            {
-                passive:true
-            }
-        );
+        if(!mobile){
+            overlay.addEventListener(
+                "touchstart",
+                pointerMove,
+                { passive:true }
+            );
 
+            overlay.addEventListener(
+                "touchmove",
+                pointerMove,
+                { passive:true }
+            );
 
-        overlay.addEventListener(
-            "touchmove",
-            pointerMove,
-            {
-                passive:true
-            }
-        );
-
-
-        overlay.addEventListener(
-            "touchend",
-            function(){
-
-                setTimeout(
-                    pointerLeave,
-                    1600
-                );
-            }
-        );
+            overlay.addEventListener(
+                "touchend",
+                function(){
+                    setTimeout(pointerLeave,1600);
+                }
+            );
+        }
     }
 
 
