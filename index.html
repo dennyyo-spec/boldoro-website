@@ -4992,7 +4992,7 @@ img{display:block;width:100%}
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 20" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-20.jpg" alt="BOLDORO BEST JEWELRY 20" loading="lazy"></button>
     </div>
     <div class="boldoro-best-more-wrap">
-      <a id="boldoroBestMoreBtn" class="boldoro-best-more-btn" href="https://www.instagram.com/boldoro_jewelry/" target="_blank" rel="noopener noreferrer">더보기 +</a>
+      <a id="boldoroBestMoreBtn" class="boldoro-best-more-btn" href="https://www.instagram.com/boldoro_jewelry/" onclick="return openBoldoroInstagram(event);">더보기 +</a>
     </div>
   </div>
 </section>
@@ -5655,6 +5655,45 @@ function closeBoldoroBest(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBoldoroBest();});
+</script>
+
+
+<script id="boldoro-instagram-app-priority">
+function openBoldoroInstagram(event){
+    if(event) event.preventDefault();
+
+    var webUrl = "https://www.instagram.com/boldoro_jewelry/";
+    var ua = navigator.userAgent || "";
+    var isAndroid = /Android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+    if(isAndroid){
+        // Instagram 앱 우선 → 설치되어 있지 않으면 웹 프로필로 이동
+        window.location.href =
+          "intent://instagram.com/_u/boldoro_jewelry/#Intent;" +
+          "package=com.instagram.android;" +
+          "scheme=https;" +
+          "S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";" +
+          "end";
+        return false;
+    }
+
+    if(isIOS){
+        // iOS Instagram 앱 프로필 우선 시도
+        var started = Date.now();
+        window.location.href = "instagram://user?username=boldoro_jewelry";
+        setTimeout(function(){
+            if(!document.hidden && Date.now() - started < 2500){
+                window.location.href = webUrl;
+            }
+        }, 1200);
+        return false;
+    }
+
+    // PC에서는 Instagram 웹 프로필
+    window.open(webUrl, "_blank", "noopener,noreferrer");
+    return false;
+}
 </script>
 
 </body>
