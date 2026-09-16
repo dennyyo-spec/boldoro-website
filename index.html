@@ -1598,6 +1598,18 @@ img{display:block;width:100%}
   transition:transform .35s ease;
 }
 .boldoro-best-item:hover img{transform:scale(1.035);}
+
+.boldoro-best-extra{display:none;contents:none;}
+.boldoro-best-grid.show-more .boldoro-best-extra{display:block;}
+.boldoro-best-more-wrap{text-align:center;margin-top:28px;}
+.boldoro-best-more-btn{
+  min-width:150px;padding:13px 30px;border:1px solid #b99a52;background:transparent;
+  color:#8b6b24;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;
+  transition:background .25s ease,color .25s ease;
+}
+.boldoro-best-more-btn:hover{background:#b99a52;color:#fff;}
+@media(max-width:767px){.boldoro-best-more-wrap{margin-top:20px;}.boldoro-best-more-btn{min-width:130px;padding:11px 24px;font-size:13px;}}
+
 .boldoro-best-modal{
   position:fixed;
   inset:0;
@@ -4978,6 +4990,19 @@ img{display:block;width:100%}
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 18" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-18.jpg" alt="BOLDORO BEST JEWELRY 18" loading="lazy"></button>
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 19" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-19.jpg" alt="BOLDORO BEST JEWELRY 19" loading="lazy"></button>
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 20" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-20.jpg" alt="BOLDORO BEST JEWELRY 20" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 21" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-21.jpg" alt="BOLDORO BEST JEWELRY 21" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 22" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-22.jpg" alt="BOLDORO BEST JEWELRY 22" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 23" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-23.jpg" alt="BOLDORO BEST JEWELRY 23" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 24" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-24.jpg" alt="BOLDORO BEST JEWELRY 24" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 25" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-25.jpg" alt="BOLDORO BEST JEWELRY 25" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 26" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-26.jpg" alt="BOLDORO BEST JEWELRY 26" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 27" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-27.jpg" alt="BOLDORO BEST JEWELRY 27" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 28" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-28.jpg" alt="BOLDORO BEST JEWELRY 28" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 29" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-29.jpg" alt="BOLDORO BEST JEWELRY 29" loading="lazy"></button>
+      <button class="boldoro-best-item boldoro-best-extra" type="button" aria-label="BEST JEWELRY 이미지 30" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-30.jpg" alt="BOLDORO BEST JEWELRY 30" loading="lazy"></button>
+    </div>
+    <div class="boldoro-best-more-wrap">
+      <button id="boldoroBestMoreBtn" class="boldoro-best-more-btn" type="button" aria-expanded="false" onclick="toggleBoldoroBestMore()">더보기 +</button>
     </div>
   </div>
 </section>
@@ -5625,6 +5650,15 @@ img{display:block;width:100%}
   <img id="boldoroBestModalImg" src="" alt="BOLDORO BEST JEWELRY 확대 이미지">
 </div>
 <script>
+
+function toggleBoldoroBestMore(){
+  var grid=document.querySelector('#best-jewelry .boldoro-best-grid');
+  var btn=document.getElementById('boldoroBestMoreBtn');
+  var open=grid.classList.toggle('show-more');
+  btn.setAttribute('aria-expanded',open?'true':'false');
+  btn.textContent=open?'접기 −':'더보기 +';
+}
+
 function openBoldoroBest(btn){
   var img=btn.querySelector('img');
   var modal=document.getElementById('boldoroBestModal');
