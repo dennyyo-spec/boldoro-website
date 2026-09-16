@@ -1669,6 +1669,49 @@ img{display:block;width:100%}
 }
 </style>
 
+
+<script id="boldoro-mobile-graph-stability-fix">
+(function(){
+  if(!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
+
+  /* 모바일 주소창이 접히고 펴질 때 발생하는 미세한 viewport 높이 변화로
+     그래프가 계속 다시 그려지는 것을 방지한다. */
+  var lastWidth = window.innerWidth;
+  var stableTimer = null;
+
+  window.addEventListener('resize', function(e){
+    var currentWidth = window.innerWidth;
+
+    /* 세로 스크롤 중에는 폭이 그대로이고 높이만 바뀌는 resize가 대부분이므로
+       이 경우 기존 그래프를 그대로 유지한다. */
+    if(Math.abs(currentWidth - lastWidth) < 2){
+      if(e && e.stopImmediatePropagation) e.stopImmediatePropagation();
+      return;
+    }
+
+    lastWidth = currentWidth;
+    clearTimeout(stableTimer);
+    stableTimer = setTimeout(function(){}, 250);
+  }, true);
+
+  /* 그래프 내부는 페이지 세로 스크롤 전용 */
+  function lockChartTouchToScroll(){
+    document.querySelectorAll(
+      'canvas, svg, .chart-container, .chart-wrap, .gold-chart, .gold-chart-wrap, .graph-container, .graph-wrap'
+    ).forEach(function(el){
+      el.style.setProperty('touch-action','pan-y','important');
+      el.style.setProperty('-webkit-user-select','none','important');
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', lockChartTouchToScroll);
+  }else{
+    lockChartTouchToScroll();
+  }
+})();
+</script>
+
 </head>
 <body>
 
