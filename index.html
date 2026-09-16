@@ -8,19 +8,19 @@
 <!-- BOLDORO 링크 공유 대표 이미지 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BOLDORO">
-<meta property="og:title" content="부산 화명동 볼도르 주얼리 금거래소">
-<meta property="og:description" content="부산 북구 금매입, 보석감정, 예물, 금은방 전문 금거래소">
-<meta property="og:url" content="https://boldoro.kr/">
-<meta property="og:image" content="https://boldoro.kr/share-image.png">
-<meta property="og:image:secure_url" content="https://boldoro.kr/share-image.png">
+<meta property="og:title" content="볼도르 BOLDORO | 부산 화명동 금거래소 · 금매입 · 골드바 · 주얼리">
+<meta property="og:description" content="부산 북구 화명동 BOLDORO 볼도르 주얼리 금거래소. 순금·18K·14K·골드바·치금·은 매입과 골드바 구매, 다이아몬드·주얼리 상담을 제공합니다.">
+<meta property="og:url" content="https://boldoro-website.pages.dev/">
+<meta property="og:image" content="https://boldoro-website.pages.dev/share-image.png">
+<meta property="og:image:secure_url" content="https://boldoro-website.pages.dev/share-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="536">
 <meta property="og:image:height" content="236">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="부산 화명동 볼도르 주얼리 금거래소">
-<meta name="twitter:description" content="부산 북구 금매입, 보석감정, 예물, 금은방 전문 금거래소">
-<meta name="twitter:image" content="https://boldoro.kr/share-image.png">
+<meta name="twitter:title" content="BOLDORO Gold & Jewelry">
+<meta name="twitter:description" content="골드바 구매와 금매입, 다이아몬드와 주얼리까지 BOLDORO">
+<meta name="twitter:image" content="https://boldoro-website.pages.dev/share-image.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="shortcut icon" href="favicon.ico">
@@ -61,9 +61,26 @@ img{display:block;width:100%}
 /* hero */
 .hero{
   min-height:650px;position:relative;display:flex;align-items:center;color:#fff;
-  background:
-  linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.18) 100%),
-  var(--hero-image, url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=92")) center/cover no-repeat;
+  background:#080808;overflow:hidden;isolation:isolate;
+}
+.hero::before{
+  content:"";position:absolute;inset:-4%;z-index:-2;
+  background:var(--hero-image, url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=92")) center/cover no-repeat;
+  transform:scale(1);
+  animation:boldoroHeroZoom 14s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.18) 100%);
+  pointer-events:none;
+}
+@keyframes boldoroHeroZoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.08);}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero::before{animation:none;transform:scale(1);}
 }
 .hero .wrap{padding-top:60px}
 .hero-copy{max-width:570px}
@@ -1508,14 +1525,14 @@ img{display:block;width:100%}
 }
 </style>
 
-<link rel="canonical" href="https://boldoro.kr/">
+<link rel="canonical" href="https://boldoro-website.pages.dev/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "JewelryStore",
   "name": "BOLDORO 볼도르 주얼리 금거래소",
-  "url": "https://boldoro.kr/",
-  "image": "https://boldoro.kr/share-image.png",
+  "url": "https://boldoro-website.pages.dev/",
+  "image": "https://boldoro-website.pages.dev/share-image.png",
   "telephone": "010-3970-2418",
   "address": {
     "@type": "PostalAddress",
@@ -1642,150 +1659,6 @@ img{display:block;width:100%}
 }
 </style>
 
-
-<style id="boldoro-mobile-chart-touch-priority">
-@media (max-width: 767px){
-  /* 모바일에서는 그래프 터치 선택보다 페이지 세로 스크롤을 우선 */
-  canvas,
-  .chart-container,
-  .chart-wrap,
-  .gold-chart,
-  .gold-chart-wrap,
-  .graph-container,
-  .graph-wrap,
-  #goldChart,
-  #gold-chart,
-  #priceChart,
-  #price-chart {
-    touch-action: pan-y !important;
-    -ms-touch-action: pan-y !important;
-  }
-
-  /* 그래프의 canvas가 손가락 드래그를 가로채지 않도록 함.
-     모바일에서는 금액 확인은 그래프 터치 대신 화면 표시값을 사용. */
-  canvas {
-    pointer-events: none !important;
-  }
-}
-</style>
-
-
-<script id="boldoro-mobile-graph-stability-fix">
-(function(){
-  if(!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
-
-  /* 모바일 주소창이 접히고 펴질 때 발생하는 미세한 viewport 높이 변화로
-     그래프가 계속 다시 그려지는 것을 방지한다. */
-  var lastWidth = window.innerWidth;
-  var stableTimer = null;
-
-  window.addEventListener('resize', function(e){
-    var currentWidth = window.innerWidth;
-
-    /* 세로 스크롤 중에는 폭이 그대로이고 높이만 바뀌는 resize가 대부분이므로
-       이 경우 기존 그래프를 그대로 유지한다. */
-    if(Math.abs(currentWidth - lastWidth) < 2){
-      if(e && e.stopImmediatePropagation) e.stopImmediatePropagation();
-      return;
-    }
-
-    lastWidth = currentWidth;
-    clearTimeout(stableTimer);
-    stableTimer = setTimeout(function(){}, 250);
-  }, true);
-
-  /* 그래프 내부는 페이지 세로 스크롤 전용 */
-  function lockChartTouchToScroll(){
-    document.querySelectorAll(
-      'canvas, svg, .chart-container, .chart-wrap, .gold-chart, .gold-chart-wrap, .graph-container, .graph-wrap'
-    ).forEach(function(el){
-      el.style.setProperty('touch-action','pan-y','important');
-      el.style.setProperty('-webkit-user-select','none','important');
-    });
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', lockChartTouchToScroll);
-  }else{
-    lockChartTouchToScroll();
-  }
-})();
-</script>
-
-
-<style id="boldoro-mobile-footer-gap-phone-final">
-/* 모바일: CONTACT 아래 숨김 키워드 영역이 차지하던 빈 공간 제거 */
-@media (max-width: 900px){
-  .keyword-area{
-    display:block !important;
-    height:0 !important;
-    min-height:0 !important;
-    max-height:0 !important;
-    padding:0 !important;
-    margin:0 !important;
-    border:0 !important;
-    overflow:hidden !important;
-    line-height:0 !important;
-  }
-  .keyword-area h2,
-  .keyword-area > p,
-  .keyword-area .keyword-tags{
-    height:0 !important;
-    max-height:0 !important;
-    padding:0 !important;
-    margin:0 !important;
-    overflow:hidden !important;
-    line-height:0 !important;
-  }
-
-  /* CONTACT 섹션과 검정 푸터 사이 불필요한 하단 여백 최소화 */
-  .boldoro-contact-section{
-    padding-bottom:16px !important;
-  }
-}
-
-/* 푸터 전화번호 전체 클릭 가능 + 흰색 전화 아이콘 */
-.footer .contact-box .phone{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:flex-start !important;
-}
-.footer-phone-link{
-  display:inline-flex !important;
-  align-items:center !important;
-  gap:9px !important;
-  color:#fff !important;
-  text-decoration:none !important;
-  white-space:nowrap !important;
-}
-.footer-phone-link i{
-  color:#fff !important;
-  font-size:.78em !important;
-  line-height:1 !important;
-}
-.footer-phone-link span{
-  color:#fff !important;
-}
-@media (max-width:680px){
-  .footer .contact-box .phone{
-    justify-content:center !important;
-  }
-  .footer-phone-link{
-    justify-content:center !important;
-  }
-}
-</style>
-
-
-<style id="boldoro-mobile-footer-small-gap-final">
-@media (max-width:900px){
-  .footer{
-    margin-top:14px !important;
-  }
-}
-</style>
-
-  <meta name="naver-site-verification" content="838277f3ca33f569a1cf816c5ce7b53c87003ce7" />
 </head>
 <body>
 
@@ -4595,9 +4468,7 @@ img{display:block;width:100%}
                         "transparent",
 
                     style:
-                        mobile
-                            ? "pointer-events:none;touch-action:pan-y;"
-                            : "cursor:crosshair;touch-action:none;"
+                        "cursor:crosshair;touch-action:none;"
                 }
             );
 
@@ -4916,26 +4787,34 @@ img{display:block;width:100%}
         );
 
 
-        if(!mobile){
-            overlay.addEventListener(
-                "touchstart",
-                pointerMove,
-                { passive:true }
-            );
+        overlay.addEventListener(
+            "touchstart",
+            pointerMove,
+            {
+                passive:true
+            }
+        );
 
-            overlay.addEventListener(
-                "touchmove",
-                pointerMove,
-                { passive:true }
-            );
 
-            overlay.addEventListener(
-                "touchend",
-                function(){
-                    setTimeout(pointerLeave,1600);
-                }
-            );
-        }
+        overlay.addEventListener(
+            "touchmove",
+            pointerMove,
+            {
+                passive:true
+            }
+        );
+
+
+        overlay.addEventListener(
+            "touchend",
+            function(){
+
+                setTimeout(
+                    pointerLeave,
+                    1600
+                );
+            }
+        );
     }
 
 
@@ -5495,12 +5374,7 @@ img{display:block;width:100%}
 
       <div class="contact-box">
         <strong>상담 및 예약</strong>
-        <div class="phone">
-          <a class="footer-phone-link" href="tel:01039702418" aria-label="010-3970-2418 전화 연결">
-            <i class="fa fa-phone" aria-hidden="true"></i>
-            <span>010-3970-2418</span>
-          </a>
-        </div>
+        <div class="phone">☎ 010-3970-2418</div>
         <p><strong class="business-hours-label">영업시간 :</strong> 월~토 10:00~19:00 (일·공휴일 예약제 운영)</p>
       </div>
     </div>
@@ -5837,53 +5711,6 @@ function openBoldoroInstagram(event){
     window.open(webUrl, "_blank", "noopener,noreferrer");
     return false;
 }
-</script>
-
-
-<style id="boldoro-mobile-chart-scroll-fix">
-@media (max-width: 767px){
-  /* 국내 금시세 그래프 위에서도 손가락 세로 스크롤 허용 */
-  canvas,
-  .chart-container,
-  .chart-wrap,
-  .gold-chart,
-  .gold-chart-wrap,
-  .graph-container,
-  .graph-wrap,
-  #goldChart,
-  #gold-chart,
-  #priceChart,
-  #price-chart {
-    touch-action: pan-y !important;
-    -ms-touch-action: pan-y !important;
-  }
-}
-</style>
-<script id="boldoro-mobile-chart-scroll-js">
-(function(){
-  if(!window.matchMedia || !window.matchMedia('(max-width: 767px)').matches) return;
-
-  function enableVerticalScroll(){
-    var selectors = [
-      'canvas',
-      '.chart-container', '.chart-wrap',
-      '.gold-chart', '.gold-chart-wrap',
-      '.graph-container', '.graph-wrap',
-      '#goldChart', '#gold-chart',
-      '#priceChart', '#price-chart'
-    ];
-    document.querySelectorAll(selectors.join(',')).forEach(function(el){
-      el.style.setProperty('touch-action','pan-y','important');
-      el.style.setProperty('-ms-touch-action','pan-y','important');
-    });
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', enableVerticalScroll);
-  } else {
-    enableVerticalScroll();
-  }
-})();
 </script>
 
 </body>
