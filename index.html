@@ -19,7 +19,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BOLDORO Gold & Jewelry">
-<meta name="twitter:description" content="골드바 구매와 금매입, 다이아몬드와 주얼리까지 BOLDORO" class="boldoro-hero-text-anim boldoro-hero-text-3">
+<meta name="twitter:description" content="골드바 구매와 금매입, 다이아몬드와 주얼리까지 BOLDORO">
 <meta name="twitter:image" content="https://boldoro-website.pages.dev/share-image.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -1660,29 +1660,38 @@ img{display:block;width:100%}
 </style>
 
 
-<style id="boldoro-hero-text-motion-final">
-/* 메인 문구 순차 등장: 아래에서 위로 부드럽게 떠오른 뒤 고정 */
-.boldoro-hero-text-anim{
-  opacity:0;
-  transform:translateY(24px);
-  animation:boldoroHeroTextRise .85s cubic-bezier(.22,.61,.36,1) forwards;
-  will-change:opacity,transform;
+<style id="boldoro-hero-text-motion-fixed">
+@keyframes boldoroHeroTextRiseFixed{
+  from{
+    opacity:0 !important;
+    transform:translate3d(0,32px,0) !important;
+  }
+  to{
+    opacity:1 !important;
+    transform:translate3d(0,0,0) !important;
+  }
 }
-.boldoro-hero-text-1{animation-delay:.15s;}
-.boldoro-hero-text-2{animation-delay:.42s;}
-.boldoro-hero-text-3{animation-delay:.72s;}
-.boldoro-hero-text-4{animation-delay:1.02s;}
 
-@keyframes boldoroHeroTextRise{
-  0%{opacity:0;transform:translateY(24px);}
-  100%{opacity:1;transform:translateY(0);}
+/* 메인 텍스트 순차 등장 */
+.boldoro-hero-animate{
+  opacity:0 !important;
+  transform:translate3d(0,32px,0) !important;
+  animation-name:boldoroHeroTextRiseFixed !important;
+  animation-duration:.9s !important;
+  animation-timing-function:cubic-bezier(.22,.61,.36,1) !important;
+  animation-fill-mode:forwards !important;
+  animation-iteration-count:1 !important;
 }
+.boldoro-hero-animate.hero-line-1{animation-delay:.15s !important;}
+.boldoro-hero-animate.hero-line-2{animation-delay:.50s !important;}
+.boldoro-hero-animate.hero-line-3{animation-delay:.85s !important;}
+.boldoro-hero-animate.hero-line-4{animation-delay:1.15s !important;}
 
 @media (prefers-reduced-motion:reduce){
-  .boldoro-hero-text-anim{
-    opacity:1;
-    transform:none;
-    animation:none;
+  .boldoro-hero-animate{
+    opacity:1 !important;
+    transform:none !important;
+    animation:none !important;
   }
 }
 </style>
@@ -1699,9 +1708,9 @@ img{display:block;width:100%}
 <section class="hero" id="about">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="hero-kicker" class="boldoro-hero-text-anim boldoro-hero-text-1">VALUE BEYOND GOLD</div>
+      <div class="hero-kicker boldoro-hero-animate hero-line-1">VALUE BEYOND GOLD</div>
       <h1>가치를 아는 당신의<br>선택, 볼도르</h1>
-      <p>골드바 구매와 금매입, 다이아몬드와 주얼리까지<br class="boldoro-hero-text-anim boldoro-hero-text-4">신뢰와 전문성으로 최고의 가치를 전합니다.</p>
+      <p>골드바 구매와 금매입, 다이아몬드와 주얼리까지<br>신뢰와 전문성으로 최고의 가치를 전합니다.</p>
       <a class="btn gold"  href="tel:01039702418">전화문의 <span>→</span></a>
     </div>
   </div>
