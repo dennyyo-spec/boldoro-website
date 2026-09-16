@@ -1642,6 +1642,33 @@ img{display:block;width:100%}
 }
 </style>
 
+
+<style id="boldoro-mobile-chart-touch-priority">
+@media (max-width: 767px){
+  /* 모바일에서는 그래프 터치 선택보다 페이지 세로 스크롤을 우선 */
+  canvas,
+  .chart-container,
+  .chart-wrap,
+  .gold-chart,
+  .gold-chart-wrap,
+  .graph-container,
+  .graph-wrap,
+  #goldChart,
+  #gold-chart,
+  #priceChart,
+  #price-chart {
+    touch-action: pan-y !important;
+    -ms-touch-action: pan-y !important;
+  }
+
+  /* 그래프의 canvas가 손가락 드래그를 가로채지 않도록 함.
+     모바일에서는 금액 확인은 그래프 터치 대신 화면 표시값을 사용. */
+  canvas {
+    pointer-events: none !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
