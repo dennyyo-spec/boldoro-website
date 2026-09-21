@@ -10,9 +10,9 @@
 <meta property="og:site_name" content="BOLDORO">
 <meta property="og:title" content="볼도르 BOLDORO | 부산 화명동 금거래소 · 금매입 · 골드바 · 주얼리">
 <meta property="og:description" content="부산 북구 화명동 BOLDORO 볼도르 주얼리 금거래소. 순금·18K·14K·골드바·치금·은 매입과 골드바 구매, 다이아몬드·주얼리 상담을 제공합니다.">
-<meta property="og:url" content="https://boldoro.kr/">
-<meta property="og:image" content="https://boldoro.kr/share-image.png">
-<meta property="og:image:secure_url" content="https://boldoro.kr/share-image.png">
+<meta property="og:url" content="https://boldoro-website.pages.dev/">
+<meta property="og:image" content="https://boldoro-website.pages.dev/share-image.png">
+<meta property="og:image:secure_url" content="https://boldoro-website.pages.dev/share-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="536">
 <meta property="og:image:height" content="236">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BOLDORO Gold & Jewelry">
 <meta name="twitter:description" content="골드바 구매와 금매입, 다이아몬드와 주얼리까지 BOLDORO">
-<meta name="twitter:image" content="https://boldoro.kr/share-image.png">
+<meta name="twitter:image" content="https://boldoro-website.pages.dev/share-image.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="shortcut icon" href="favicon.ico">
@@ -61,26 +61,9 @@ img{display:block;width:100%}
 /* hero */
 .hero{
   min-height:650px;position:relative;display:flex;align-items:center;color:#fff;
-  background:#080808;overflow:hidden;isolation:isolate;
-}
-.hero::before{
-  content:"";position:absolute;inset:-4%;z-index:-2;
-  background:var(--hero-image, url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=92")) center/cover no-repeat;
-  transform:scale(1);
-  animation: boldoroHeroZoom 6s ease-in-out infinite alternate;
-  transform-origin:center center;
-}
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.18) 100%);
-  pointer-events:none;
-}
-@keyframes boldoroHeroZoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.08);}
-}
-@media (prefers-reduced-motion: reduce){
-  .hero::before{animation:none;transform:scale(1);}
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.42) 38%,rgba(0,0,0,.18) 100%),
+  var(--hero-image, url("https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2200&q=92")) center/cover no-repeat;
 }
 .hero .wrap{padding-top:60px}
 .hero-copy{max-width:570px}
@@ -529,7 +512,7 @@ img{display:block;width:100%}
   overflow:hidden;
   padding:12px 0 10px;
   cursor:grab;
-  touch-action:none;
+  touch-action:pan-y;
   user-select:none;
   -webkit-user-select:none;
 }
@@ -1525,14 +1508,14 @@ img{display:block;width:100%}
 }
 </style>
 
-<link rel="canonical" href="https://boldoro.kr/">
+<link rel="canonical" href="https://boldoro-website.pages.dev/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "JewelryStore",
   "name": "BOLDORO 볼도르 주얼리 금거래소",
-  "url": "https://boldoro.kr/",
-  "image": "https://boldoro.kr/share-image.png",
+  "url": "https://boldoro-website.pages.dev/",
+  "image": "https://boldoro-website.pages.dev/share-image.png",
   "telephone": "010-3970-2418",
   "address": {
     "@type": "PostalAddress",
@@ -1615,18 +1598,6 @@ img{display:block;width:100%}
   transition:transform .35s ease;
 }
 .boldoro-best-item:hover img{transform:scale(1.035);}
-
-.boldoro-best-extra{display:none;contents:none;}
-.boldoro-best-grid.show-more .boldoro-best-extra{display:block;}
-.boldoro-best-more-wrap{text-align:center;margin-top:28px;}
-.boldoro-best-more-btn{
-  min-width:150px;padding:13px 30px;border:1px solid #b99a52;background:transparent;
-  color:#8b6b24;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;
-  transition:background .25s ease,color .25s ease;
-}
-.boldoro-best-more-btn:hover{background:#b99a52;color:#fff;}
-@media(max-width:767px){.boldoro-best-more-wrap{margin-top:20px;}.boldoro-best-more-btn{min-width:130px;padding:11px 24px;font-size:13px;}}
-
 .boldoro-best-modal{
   position:fixed;
   inset:0;
@@ -1660,42 +1631,53 @@ img{display:block;width:100%}
 </style>
 
 
-<style id="boldoro-hero-text-motion-fixed">
-@keyframes boldoroHeroTextRiseFixed{
-  from{
-    opacity:0 !important;
-    transform:translate3d(0,32px,0) !important;
-  }
-  to{
-    opacity:1 !important;
-    transform:translate3d(0,0,0) !important;
-  }
+<style id="boldoro-keyword-area-visible-final">
+.keyword-area{
+  display:block !important;
+  background:#f5f5f3 !important;
+  color:#222 !important;
+  padding:42px 24px 38px !important;
+  margin:0 !important;
+  border-bottom:1px solid #deded8 !important;
+  font-size:15px !important;
+  line-height:1.9 !important;
+  text-align:center !important;
 }
-
-/* 메인 텍스트 순차 등장 */
-.boldoro-hero-animate{
-  opacity:0 !important;
-  transform:translate3d(0,32px,0) !important;
-  animation-name:boldoroHeroTextRiseFixed !important;
-  animation-duration:.9s !important;
-  animation-timing-function:cubic-bezier(.22,.61,.36,1) !important;
-  animation-fill-mode:forwards !important;
-  animation-iteration-count:1 !important;
+.keyword-area h2{
+  color:#f5f5f3 !important;
+  font-size:20px !important;
+  font-weight:700 !important;
+  margin:0 0 14px !important;
+  line-height:1.5 !important;
 }
-.boldoro-hero-animate.hero-line-1{animation-delay:.15s !important;}
-.boldoro-hero-animate.hero-line-2{animation-delay:.50s !important;}
-.boldoro-hero-animate.hero-line-3{animation-delay:.85s !important;}
-.boldoro-hero-animate.hero-line-4{animation-delay:1.15s !important;}
-
-@media (prefers-reduced-motion:reduce){
-  .boldoro-hero-animate{
-    opacity:1 !important;
-    transform:none !important;
-    animation:none !important;
-  }
+.keyword-area > p{
+  max-width:1100px !important;
+  margin:0 auto !important;
+  color:#f5f5f3 !important;
+  font-size:15px !important;
+  line-height:1.9 !important;
+}
+.keyword-area .keyword-tags{
+  max-width:1200px !important;
+  margin:22px auto 0 !important;
+  color:#f5f5f3 !important;
+  font-size:8px !important;
+  line-height:2 !important;
+  text-align:center !important;
+}
+@media(max-width:680px){
+  .keyword-area{padding:30px 18px 28px !important;}
+  .keyword-area h2{font-size:18px !important;}
+  .keyword-area > p{font-size:14px !important;}
+  .keyword-area .keyword-tags{font-size:8px !important;line-height:1.9 !important;}
 }
 </style>
 
+
+<style id="boldoro-keyword-zero-spacing">
+.keyword-area{margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;}
+.keyword-area h2,.keyword-area p{margin-top:0!important;margin-bottom:0!important;}
+</style>
 </head>
 <body>
 
@@ -1708,7 +1690,7 @@ img{display:block;width:100%}
 <section class="hero" id="about">
   <div class="wrap">
     <div class="hero-copy">
-      <div class="hero-kicker boldoro-hero-animate hero-line-1">VALUE BEYOND GOLD</div>
+      <div class="hero-kicker">VALUE BEYOND GOLD</div>
       <h1>가치를 아는 당신의<br>선택, 볼도르</h1>
       <p>골드바 구매와 금매입, 다이아몬드와 주얼리까지<br>신뢰와 전문성으로 최고의 가치를 전합니다.</p>
       <a class="btn gold"  href="tel:01039702418">전화문의 <span>→</span></a>
@@ -3025,7 +3007,7 @@ img{display:block;width:100%}
 
     overflow:visible;
 
-    touch-action:pan-y;
+    touch-action:none;
 }
 
 #gdc-loading,
@@ -4505,7 +4487,7 @@ img{display:block;width:100%}
                         "transparent",
 
                     style:
-                        "cursor:crosshair;touch-action:pan-y;"
+                        "cursor:crosshair;touch-action:none;"
                 }
             );
 
@@ -5044,9 +5026,6 @@ img{display:block;width:100%}
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 18" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-18.jpg" alt="BOLDORO BEST JEWELRY 18" loading="lazy"></button>
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 19" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-19.jpg" alt="BOLDORO BEST JEWELRY 19" loading="lazy"></button>
       <button class="boldoro-best-item" type="button" aria-label="BEST JEWELRY 이미지 20" onclick="openBoldoroBest(this)"><img src="images/best-jewelry/best-20.jpg" alt="BOLDORO BEST JEWELRY 20" loading="lazy"></button>
-    </div>
-    <div class="boldoro-best-more-wrap">
-      <a id="boldoroBestMoreBtn" class="boldoro-best-more-btn" href="https://www.instagram.com/boldoro_jewelry/" onclick="return openBoldoroInstagram(event);">더보기 +</a>
     </div>
   </div>
 </section>
@@ -5694,7 +5673,6 @@ img{display:block;width:100%}
   <img id="boldoroBestModalImg" src="" alt="BOLDORO BEST JEWELRY 확대 이미지">
 </div>
 <script>
-
 function openBoldoroBest(btn){
   var img=btn.querySelector('img');
   var modal=document.getElementById('boldoroBestModal');
@@ -5709,45 +5687,6 @@ function closeBoldoroBest(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBoldoroBest();});
-</script>
-
-
-<script id="boldoro-instagram-app-priority">
-function openBoldoroInstagram(event){
-    if(event) event.preventDefault();
-
-    var webUrl = "https://www.instagram.com/boldoro_jewelry/";
-    var ua = navigator.userAgent || "";
-    var isAndroid = /Android/i.test(ua);
-    var isIOS = /iPhone|iPad|iPod/i.test(ua);
-
-    if(isAndroid){
-        // Instagram 앱 우선 → 설치되어 있지 않으면 웹 프로필로 이동
-        window.location.href =
-          "intent://instagram.com/_u/boldoro_jewelry/#Intent;" +
-          "package=com.instagram.android;" +
-          "scheme=https;" +
-          "S.browser_fallback_url=" + encodeURIComponent(webUrl) + ";" +
-          "end";
-        return false;
-    }
-
-    if(isIOS){
-        // iOS Instagram 앱 프로필 우선 시도
-        var started = Date.now();
-        window.location.href = "instagram://user?username=boldoro_jewelry";
-        setTimeout(function(){
-            if(!document.hidden && Date.now() - started < 2500){
-                window.location.href = webUrl;
-            }
-        }, 1200);
-        return false;
-    }
-
-    // PC에서는 Instagram 웹 프로필
-    window.open(webUrl, "_blank", "noopener,noreferrer");
-    return false;
-}
 </script>
 
 </body>
