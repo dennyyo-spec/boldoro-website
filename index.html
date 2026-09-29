@@ -1598,6 +1598,18 @@ img{display:block;width:100%}
   transition:transform .35s ease;
 }
 .boldoro-best-item:hover img{transform:scale(1.035);}
+
+.boldoro-best-extra{display:none;contents:none;}
+.boldoro-best-grid.show-more .boldoro-best-extra{display:block;}
+.boldoro-best-more-wrap{text-align:center;margin-top:28px;}
+.boldoro-best-more-btn{
+  min-width:150px;padding:13px 30px;border:1px solid #b99a52;background:transparent;
+  color:#8b6b24;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;
+  transition:background .25s ease,color .25s ease;
+}
+.boldoro-best-more-btn:hover{background:#b99a52;color:#fff;}
+@media(max-width:767px){.boldoro-best-more-wrap{margin-top:20px;}.boldoro-best-more-btn{min-width:130px;padding:11px 24px;font-size:13px;}}
+
 .boldoro-best-modal{
   position:fixed;
   inset:0;
@@ -1630,6 +1642,55 @@ img{display:block;width:100%}
 }
 </style>
 
+<style id="boldoro-best-more-final-fix">
+/* BOLDORO BEST JEWELRY MORE BUTTON - FORCE RECTANGLE + CENTER */
+.boldoro-best-more-wrap{
+  width:100% !important;
+  display:flex !important;
+  flex-direction:row !important;
+  justify-content:center !important;
+  align-items:center !important;
+  text-align:center !important;
+  margin:28px 0 0 0 !important;
+  padding:0 !important;
+}
+.boldoro-best-more-btn{
+  display:flex !important;
+  width:150px !important;
+  min-width:150px !important;
+  max-width:150px !important;
+  height:46px !important;
+  min-height:46px !important;
+  max-height:46px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  border:1px solid #b99a52 !important;
+  border-radius:0 !important;
+  background:#fff !important;
+  color:#8b6b24 !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  text-decoration:none !important;
+  line-height:1 !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  letter-spacing:.08em !important;
+}
+.boldoro-best-more-btn:hover{
+  background:#b99a52 !important;
+  color:#fff !important;
+}
+@media(max-width:767px){
+  .boldoro-best-more-wrap{margin-top:20px !important;}
+  .boldoro-best-more-btn{
+    width:130px !important; min-width:130px !important; max-width:130px !important;
+    height:42px !important; min-height:42px !important; max-height:42px !important;
+    font-size:13px !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -5628,6 +5689,7 @@ img{display:block;width:100%}
   <img id="boldoroBestModalImg" src="" alt="BOLDORO BEST JEWELRY 확대 이미지">
 </div>
 <script>
+
 function openBoldoroBest(btn){
   var img=btn.querySelector('img');
   var modal=document.getElementById('boldoroBestModal');
